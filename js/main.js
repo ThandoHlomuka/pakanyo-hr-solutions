@@ -9,12 +9,11 @@
     var skipBtn = document.getElementById('splashSkip');
     var progressBar = document.getElementById('splashProgress');
     var brand = document.getElementById('splashBrand');
-    var splashChar = document.getElementById('splashChar');
 
     if (!splash) return;
 
     var dismissed = false;
-    var splashDuration = 6500;
+    var splashDuration = 5500;
     var progressInterval;
 
     function dismissSplash() {
@@ -39,15 +38,12 @@
     }
 
     document.body.style.overflow = 'hidden';
+
     startProgress();
 
     setTimeout(function() {
-      if (!dismissed && splashChar) splashChar.classList.add('arrived');
-    }, 3800);
-
-    setTimeout(function() {
       if (!dismissed && brand) brand.classList.add('revealed');
-    }, 4400);
+    }, 3800);
 
     if (enterBtn) {
       enterBtn.addEventListener('click', dismissSplash);
@@ -77,7 +73,7 @@
 
     setTimeout(function() {
       if (!dismissed) dismissSplash();
-    }, 10000);
+    }, 9000);
   }
 
   /* ─── Navbar ─── */
