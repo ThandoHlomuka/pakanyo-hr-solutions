@@ -9,6 +9,62 @@
 </head>
 <body>
 
+  <div class="splash" id="splash" role="dialog" aria-label="Welcome">
+    <div class="splash-bg"></div>
+
+    <div class="splash-particles" aria-hidden="true">
+      <span></span><span></span><span></span><span></span><span></span>
+      <span></span><span></span><span></span><span></span><span></span>
+    </div>
+
+    <button class="splash-skip" id="splashSkip" aria-label="Skip animation">Skip &rarr;</button>
+
+    <div class="splash-scene" id="splashScene">
+      <svg class="splash-path" viewBox="0 0 400 4" aria-hidden="true">
+        <line x1="0" y1="2" x2="400" y2="2" stroke="url(#pathGrad)" stroke-width="4" stroke-linecap="round"/>
+        <defs>
+          <linearGradient id="pathGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="rgba(201,149,45,0)"/>
+            <stop offset="50%" stop-color="rgba(201,149,45,0.6)"/>
+            <stop offset="100%" stop-color="rgba(201,149,45,0)"/>
+          </linearGradient>
+        </defs>
+      </svg>
+
+      <div class="splash-character" id="splashChar">
+        <div class="char-head">
+          <div class="char-head-inner"></div>
+        </div>
+        <div class="char-body">
+          <div class="char-collar"></div>
+        </div>
+        <div class="char-arm char-arm-left"></div>
+        <div class="char-arm char-arm-right" id="charArm">
+          <div class="char-hand"></div>
+        </div>
+        <div class="char-leg char-leg-left" id="legLeft"></div>
+        <div class="char-leg char-leg-right" id="legRight"></div>
+        <div class="char-shadow"></div>
+      </div>
+    </div>
+
+    <div class="splash-brand" id="splashBrand">
+      <div class="splash-logo-mark">
+        <span class="splash-logo-icon">P</span>
+      </div>
+      <h1 class="splash-title">Pakanyo HR Solutions</h1>
+      <p class="splash-sub">Your Strategic Workforce Capability Partner</p>
+      <button class="splash-enter" id="splashEnter">
+        <span>Explore</span>
+        <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+
+    <div class="splash-progress" aria-hidden="true">
+      <span class="splash-progress-bar" id="splashProgress"></span>
+    </div>
+  </div>
+
   <nav class="navbar">
     <div class="container">
       <a href="index.html" class="logo">
