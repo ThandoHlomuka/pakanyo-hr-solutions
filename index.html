@@ -20,16 +20,32 @@
     <button class="splash-skip" id="splashSkip" aria-label="Skip animation">Skip &rarr;</button>
 
     <div class="splash-scene" id="splashScene">
-      <svg class="splash-path" viewBox="0 0 400 4" aria-hidden="true">
-        <line x1="0" y1="2" x2="400" y2="2" stroke="url(#pathGrad)" stroke-width="4" stroke-linecap="round"/>
-        <defs>
-          <linearGradient id="pathGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="rgba(201,149,45,0)"/>
-            <stop offset="50%" stop-color="rgba(201,149,45,0.6)"/>
-            <stop offset="100%" stop-color="rgba(201,149,45,0)"/>
-          </linearGradient>
-        </defs>
-      </svg>
+      <div class="splash-path" aria-hidden="true">
+        <svg viewBox="0 0 380 60" fill="none">
+          <path d="M 0 50 Q 95 10 190 30 Q 285 50 380 30" stroke="url(#pathGrad)" stroke-width="3" stroke-linecap="round" fill="none" opacity="0.6"/>
+          <path d="M 0 50 Q 95 10 190 30 Q 285 50 380 30" stroke="url(#pathGlow)" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.15" filter="blur(4px)"/>
+          <defs>
+            <linearGradient id="pathGrad" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="rgba(201,149,45,0)"/>
+              <stop offset="30%" stop-color="rgba(201,149,45,0.5)"/>
+              <stop offset="70%" stop-color="rgba(201,149,45,0.5)"/>
+              <stop offset="100%" stop-color="rgba(201,149,45,0)"/>
+            </linearGradient>
+            <linearGradient id="pathGlow" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0%" stop-color="rgba(201,149,45,0)"/>
+              <stop offset="30%" stop-color="rgba(201,149,45,0.3)"/>
+              <stop offset="70%" stop-color="rgba(201,149,45,0.3)"/>
+              <stop offset="100%" stop-color="rgba(201,149,45,0)"/>
+            </linearGradient>
+          </defs>
+        </svg>
+      </div>
+
+      <div class="path-trail path-trail-1"></div>
+      <div class="path-trail path-trail-2"></div>
+      <div class="path-trail path-trail-3"></div>
+      <div class="path-trail path-trail-4"></div>
+      <div class="path-trail path-trail-5"></div>
 
       <div class="splash-character" id="splashChar">
         <div class="char-head">
@@ -37,14 +53,23 @@
         </div>
         <div class="char-body">
           <div class="char-collar"></div>
+          <div class="char-tie"></div>
         </div>
-        <div class="char-arm char-arm-left"></div>
-        <div class="char-arm char-arm-right" id="charArm">
+        <div class="char-briefcase" id="briefcase">
+          <div class="briefcase-handle"></div>
+        </div>
+        <div class="char-arm char-arm-left" id="armLeft"></div>
+        <div class="char-arm char-arm-right" id="armRight">
           <div class="char-hand"></div>
         </div>
         <div class="char-leg char-leg-left" id="legLeft"></div>
         <div class="char-leg char-leg-right" id="legRight"></div>
         <div class="char-shadow"></div>
+      </div>
+      <div class="sparkle-burst" id="sparkleBurst" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
+        <span></span><span></span><span></span><span></span><span></span>
       </div>
     </div>
 
