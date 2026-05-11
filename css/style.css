@@ -294,16 +294,6 @@ textarea::placeholder {
   transform: translateY(-3px);
 }
 
-.btn-gold {
-  background: linear-gradient(135deg, var(--secondary), var(--secondary-dark));
-  color: var(--white);
-}
-
-.btn-gold:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(201, 149, 45, 0.35);
-}
-
 /* ─── Hero ─── */
 .hero {
   min-height: 100vh;
@@ -1373,7 +1363,7 @@ textarea::placeholder {
   transform-origin: bottom center;
   width: 14px;
   height: 7px;
-  animation: plantSway 3s ease-in-out 1.5s infinite alternate-reverse;
+  animation: plantSway2 3s ease-in-out 1.5s infinite alternate-reverse;
 }
 
 .plant-leaf-3 {
@@ -1382,7 +1372,7 @@ textarea::placeholder {
   transform-origin: bottom center;
   width: 12px;
   height: 6px;
-  animation: plantSway 3s ease-in-out 2s infinite alternate;
+  animation: plantSway3 3s ease-in-out 2s infinite alternate;
 }
 
 @keyframes plantSway {
@@ -1390,13 +1380,11 @@ textarea::placeholder {
   100% { transform: translateX(-50%) rotate(-20deg); }
 }
 
-.plant-leaf-2 { animation-name: plantSway2; }
 @keyframes plantSway2 {
   0%   { transform: translateX(-50%) rotate(20deg); }
   100% { transform: translateX(-50%) rotate(30deg); }
 }
 
-.plant-leaf-3 { animation-name: plantSway3; }
 @keyframes plantSway3 {
   0%   { transform: translateX(-50%) rotate(40deg); }
   100% { transform: translateX(-50%) rotate(50deg); }
@@ -2210,7 +2198,7 @@ textarea::placeholder {
   }
 
   .programme-card.customised {
-    grid-column: 1 / -1 !important;
+    grid-column: 1 / -1;
   }
 
   .container {
