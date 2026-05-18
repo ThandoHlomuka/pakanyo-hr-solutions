@@ -1109,6 +1109,11 @@ textarea::placeholder {
   color: var(--secondary);
 }
 
+.service-detail-header .icon svg {
+  width: 32px;
+  height: 32px;
+}
+
 .service-detail h3 {
   font-size: 1.2rem;
   font-weight: 700;
