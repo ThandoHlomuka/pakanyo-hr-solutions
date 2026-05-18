@@ -393,10 +393,24 @@ textarea::placeholder {
   position: relative;
 }
 
+.hero-visual::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 400px;
+  height: 400px;
+  transform: translate(-50%, -50%);
+  background: radial-gradient(circle, rgba(201, 149, 45, 0.12) 0%, transparent 70%);
+  pointer-events: none;
+  z-index: 0;
+  border-radius: 50%;
+}
+
 .hero-visual-bg {
   position: absolute;
   inset: -40px -20px;
-  z-index: 0;
+  z-index: 1;
   pointer-events: none;
   overflow: visible;
 }
@@ -416,7 +430,7 @@ textarea::placeholder {
   width: 100%;
   max-width: 460px;
   position: relative;
-  z-index: 1;
+  z-index: 2;
 }
 
 .hero-card-badges {
