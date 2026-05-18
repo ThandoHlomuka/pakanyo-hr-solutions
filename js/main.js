@@ -20,6 +20,35 @@
     var slideIndex = 0;
     var slideInterval;
 
+    function speakWelcome() {
+      if (!('speechSynthesis' in window)) return;
+      var utterance = new SpeechSynthesisUtterance('Welcome to Pakanyo HR Solutions');
+      utterance.rate = 0.92;
+      utterance.pitch = 1.05;
+      utterance.volume = 1;
+      var voices = window.speechSynthesis.getVoices();
+      var femaleVoice = voices.find(function(v) {
+        var name = v.name.toLowerCase();
+        return /female/i.test(name) && /english/i.test(name) && (/south africa/i.test(name) || /za/i.test(v.lang));
+      });
+      if (!femaleVoice) {
+        femaleVoice = voices.find(function(v) {
+          var name = v.name.toLowerCase();
+          return /female/i.test(name) && /english/i.test(name);
+        });
+      }
+      if (femaleVoice) utterance.voice = femaleVoice;
+      window.speechSynthesis.speak(utterance);
+    }
+
+    if (window.speechSynthesis) {
+      if (window.speechSynthesis.getVoices().length) {
+        speakWelcome();
+      } else {
+        window.speechSynthesis.addEventListener('voiceschanged', speakWelcome, { once: true });
+      }
+    }
+
     function nextSlide() {
       if (slides.length === 0) return;
       slides[slideIndex].classList.remove('active');
@@ -39,6 +68,7 @@
       dismissed = true;
       clearInterval(progressInterval);
       clearInterval(slideInterval);
+      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
       splash.classList.add('hidden');
       document.body.style.overflow = '';
       setTimeout(function() {
