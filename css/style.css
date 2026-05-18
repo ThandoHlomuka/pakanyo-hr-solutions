@@ -717,11 +717,20 @@ textarea::placeholder {
   width: 0;
   background: linear-gradient(90deg, var(--secondary), var(--secondary-light));
   border-radius: 10px;
-  transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  transition: width 1.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  will-change: width;
 }
 
-.visible .trust-fill {
-  width: calc(var(--w, 0) * 1%);
+.trust-item:nth-child(2) .trust-fill {
+  transition-delay: 0.2s;
+}
+
+.trust-item:nth-child(3) .trust-fill {
+  transition-delay: 0.4s;
+}
+
+.trust-item:nth-child(4) .trust-fill {
+  transition-delay: 0.6s;
 }
 
 @media (max-width: 768px) {

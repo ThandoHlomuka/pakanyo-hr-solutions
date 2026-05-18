@@ -230,27 +230,40 @@
   function animateTrustItems(container) {
     var fills = container.querySelectorAll('.trust-fill');
     var values = container.querySelectorAll('.trust-value');
+
     fills.forEach(function(fill) {
-      var w = parseInt(fill.getAttribute('data-width'), 10);
-      fill.style.width = w + '%';
+      fill.style.width = '0';
     });
     values.forEach(function(val) {
+      val.textContent = '0';
+    });
+
+    fills.forEach(function(fill, i) {
+      var w = parseInt(fill.getAttribute('data-width'), 10);
+      setTimeout(function() {
+        fill.style.width = w + '%';
+      }, i * 200);
+    });
+
+    values.forEach(function(val, i) {
       var target = parseInt(val.getAttribute('data-target'), 10);
       if (isNaN(target)) return;
-      var duration = 1500;
-      var step = Math.ceil(target / (duration / 16));
-      var current = 0;
-      var suffix = target >= 1000 ? '+' : '+';
-      function tick() {
-        current += step;
-        if (current >= target) {
-          val.textContent = target + suffix;
-          return;
+      setTimeout(function() {
+        var duration = 1500;
+        var step = Math.ceil(target / (duration / 16));
+        var current = 0;
+        var suffix = target >= 1000 ? '+' : '+';
+        function tick() {
+          current += step;
+          if (current >= target) {
+            val.textContent = target + suffix;
+            return;
+          }
+          val.textContent = current + suffix;
+          requestAnimationFrame(tick);
         }
-        val.textContent = current + suffix;
-        requestAnimationFrame(tick);
-      }
-      tick();
+        tick();
+      }, i * 200 + 100);
     });
   }
 
