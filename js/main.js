@@ -343,9 +343,9 @@
     }
   }
 
-  /* ─── About Page Hero Slideshow ─── */
-  function initAboutHeroSlideshow() {
-    var slides = document.querySelectorAll('.page-hero-about .hero-bg-slide');
+  /* ─── Hero Slideshow ─── */
+  function initHeroSlideshow() {
+    var slides = document.querySelectorAll('.page-hero-slideshow .hero-bg-slide');
     if (slides.length < 2) return;
     var index = 0;
     setInterval(function() {
@@ -365,7 +365,7 @@
       initContactForm();
       initTrustCounters();
       initConsultModal();
-      initAboutHeroSlideshow();
+      initHeroSlideshow();
     });
   } else {
     initSplash();
@@ -375,7 +375,7 @@
     initContactForm();
     initTrustCounters();
     initConsultModal();
-    initAboutHeroSlideshow();
+    initHeroSlideshow();
   }
 
 })();

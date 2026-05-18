@@ -914,19 +914,19 @@ textarea::placeholder {
 }
 
 /* ─── About Page Hero ─── */
-.page-hero-about {
+.page-hero-slideshow {
   background: none;
   min-height: 520px;
   display: flex;
   align-items: center;
 }
 
-.page-hero-about .page-hero-bg {
+.page-hero-slideshow .page-hero-bg {
   position: absolute;
   inset: 0;
 }
 
-.page-hero-about .hero-bg-slide {
+.page-hero-slideshow .hero-bg-slide {
   position: absolute;
   inset: 0;
   background-size: cover;
@@ -936,22 +936,22 @@ textarea::placeholder {
   will-change: opacity;
 }
 
-.page-hero-about .hero-bg-slide.active {
+.page-hero-slideshow .hero-bg-slide.active {
   opacity: 1;
 }
 
-.page-hero-about .page-hero-overlay {
+.page-hero-slideshow .page-hero-overlay {
   position: absolute;
   inset: 0;
   background: linear-gradient(135deg, rgba(15,43,70,0.75) 0%, rgba(9,28,46,0.85) 100%);
   z-index: 1;
 }
 
-.page-hero-about .container {
+.page-hero-slideshow .container {
   z-index: 2;
 }
 
-.page-hero-about h1 {
+.page-hero-slideshow h1 {
   font-size: 3rem;
   font-weight: 800;
   color: var(--white);
@@ -959,7 +959,7 @@ textarea::placeholder {
   text-shadow: 0 2px 20px rgba(0,0,0,0.2);
 }
 
-.page-hero-about p {
+.page-hero-slideshow p {
   color: rgba(255, 255, 255, 0.85);
   font-size: 1.05rem;
   max-width: 720px;
@@ -1894,15 +1894,15 @@ body.modal-open {
     font-size: 2.2rem;
   }
 
-  .page-hero-about {
+  .page-hero-slideshow {
     min-height: 400px;
   }
 
-  .page-hero-about h1 {
+  .page-hero-slideshow h1 {
     font-size: 2.2rem;
   }
 
-  .page-hero-about p {
+  .page-hero-slideshow p {
     font-size: 0.95rem;
   }
 
@@ -2136,7 +2136,7 @@ body.modal-open {
     font-size: 1.5rem;
   }
 
-  .page-hero-about h1 {
+  .page-hero-slideshow h1 {
     font-size: 1.5rem;
   }
 
