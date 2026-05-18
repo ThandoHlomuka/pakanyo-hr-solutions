@@ -614,6 +614,72 @@ textarea::placeholder {
   line-height: 1.6;
 }
 
+/* ─── Trust & Credibility ─── */
+.trust-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 32px 48px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.trust-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.trust-info {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.trust-label {
+  font-size: 0.95rem;
+  font-weight: 600;
+  color: var(--primary);
+}
+
+.trust-value {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--secondary);
+}
+
+.trust-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--gray-light);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.trust-fill {
+  height: 100%;
+  width: 0;
+  background: linear-gradient(90deg, var(--secondary), var(--secondary-light));
+  border-radius: 10px;
+  transition: width 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.visible .trust-fill {
+  width: calc(var(--w, 0) * 1%);
+}
+
+@media (max-width: 768px) {
+  .trust-grid {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .trust-label {
+    font-size: 0.88rem;
+  }
+  .trust-value {
+    font-size: 1rem;
+  }
+}
+
 /* ─── CTA Section ─── */
 .cta-section {
   background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);

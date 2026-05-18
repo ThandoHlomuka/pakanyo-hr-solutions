@@ -208,6 +208,52 @@
     });
   }
 
+  /* ─── Trust Counters ─── */
+  function initTrustCounters() {
+    var trustSection = document.querySelector('#trust');
+    if (!trustSection) return;
+    if (!('IntersectionObserver' in window)) {
+      animateTrustItems(trustSection);
+      return;
+    }
+    var observer = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          animateTrustItems(entry.target);
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    observer.observe(trustSection);
+  }
+
+  function animateTrustItems(container) {
+    var fills = container.querySelectorAll('.trust-fill');
+    var values = container.querySelectorAll('.trust-value');
+    fills.forEach(function(fill) {
+      var w = parseInt(fill.getAttribute('data-width'), 10);
+      fill.style.width = w + '%';
+    });
+    values.forEach(function(val) {
+      var target = parseInt(val.getAttribute('data-target'), 10);
+      if (isNaN(target)) return;
+      var duration = 1500;
+      var step = Math.ceil(target / (duration / 16));
+      var current = 0;
+      var suffix = target >= 1000 ? '+' : '+';
+      function tick() {
+        current += step;
+        if (current >= target) {
+          val.textContent = target + suffix;
+          return;
+        }
+        val.textContent = current + suffix;
+        requestAnimationFrame(tick);
+      }
+      tick();
+    });
+  }
+
   /* ─── Boot ─── */
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
@@ -216,6 +262,7 @@
       initScrollAnimations();
       initActiveLink();
       initContactForm();
+      initTrustCounters();
     });
   } else {
     initSplash();
@@ -223,6 +270,7 @@
     initScrollAnimations();
     initActiveLink();
     initContactForm();
+    initTrustCounters();
   }
 
 })();
