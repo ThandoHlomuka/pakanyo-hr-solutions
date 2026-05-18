@@ -390,6 +390,21 @@ textarea::placeholder {
   justify-content: center;
   align-items: center;
   animation: fadeInUp 0.8s ease 0.2s both;
+  position: relative;
+}
+
+.hero-visual-bg {
+  position: absolute;
+  inset: -40px -20px;
+  z-index: 0;
+  pointer-events: none;
+  overflow: visible;
+}
+
+.hero-visual-bg svg {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .hero-card {
@@ -400,6 +415,8 @@ textarea::placeholder {
   padding: 40px;
   width: 100%;
   max-width: 460px;
+  position: relative;
+  z-index: 1;
 }
 
 .hero-card-badges {
@@ -1553,7 +1570,8 @@ textarea::placeholder {
     justify-content: center;
   }
 
-  .hero-visual {
+  .hero-visual,
+  .hero-visual-bg {
     display: none;
   }
 
