@@ -337,6 +337,18 @@
     }
   }
 
+  /* ─── About Page Hero Slideshow ─── */
+  function initAboutHeroSlideshow() {
+    var slides = document.querySelectorAll('.page-hero-about .hero-bg-slide');
+    if (slides.length < 2) return;
+    var index = 0;
+    setInterval(function() {
+      slides[index].classList.remove('active');
+      index = (index + 1) % slides.length;
+      slides[index].classList.add('active');
+    }, 4000);
+  }
+
   /* ─── Boot ─── */
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
@@ -347,6 +359,7 @@
       initContactForm();
       initTrustCounters();
       initConsultModal();
+      initAboutHeroSlideshow();
     });
   } else {
     initSplash();
@@ -356,6 +369,7 @@
     initContactForm();
     initTrustCounters();
     initConsultModal();
+    initAboutHeroSlideshow();
   }
 
 })();
