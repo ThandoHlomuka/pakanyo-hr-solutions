@@ -5,14 +5,19 @@
   /* ─── Splash Screen ─── */
   function initSplash() {
     var splash = document.getElementById('splash');
+    if (!splash) return;
+
+    if (localStorage.getItem('pakanyoSplashSeen')) {
+      splash.style.display = 'none';
+      return;
+    }
+
     var enterBtn = document.getElementById('splashEnter');
     var skipBtn = document.getElementById('splashSkip');
     var progressBar = document.getElementById('splashProgress');
     var brand = document.getElementById('splashBrand');
     var slides = document.querySelectorAll('.splash-slide');
     var dots = document.querySelectorAll('.dot');
-
-    if (!splash) return;
 
     var dismissed = false;
     var splashDuration = 5500;
@@ -37,6 +42,7 @@
     function dismissSplash() {
       if (dismissed) return;
       dismissed = true;
+      localStorage.setItem('pakanyoSplashSeen', 'true');
       clearInterval(progressInterval);
       clearInterval(slideInterval);
       splash.classList.add('hidden');
