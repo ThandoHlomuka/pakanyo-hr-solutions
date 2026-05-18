@@ -10,71 +10,22 @@
 <body>
 
   <div class="splash" id="splash" role="dialog" aria-label="Welcome">
-    <div class="splash-bg"></div>
+    <div class="splash-slideshow" id="splashSlideshow">
+      <div class="splash-slide active" style="background-image: url('https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1920&q=80');" aria-hidden="true"></div>
+      <div class="splash-slide" style="background-image: url('https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1920&q=80');" aria-hidden="true"></div>
+      <div class="splash-slide" style="background-image: url('https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=1920&q=80');" aria-hidden="true"></div>
+      <div class="splash-slide" style="background-image: url('https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1920&q=80');" aria-hidden="true"></div>
+      <div class="splash-slide" style="background-image: url('https://images.unsplash.com/photo-1523240795612-9a054b0db644?auto=format&fit=crop&w=1920&q=80');" aria-hidden="true"></div>
+    </div>
+    <div class="splash-overlay"></div>
 
-    <div class="splash-particles" aria-hidden="true">
-      <span></span><span></span><span></span><span></span><span></span>
-      <span></span><span></span><span></span><span></span><span></span>
+    <div class="splash-video-bg" aria-hidden="true">
+      <video autoplay muted loop playsinline poster="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?auto=format&fit=crop&w=1920&q=80">
+        <source src="https://videos.pexels.com/video-files/3195396/3195396-uhd_2560_1440_30fps.mp4" type="video/mp4">
+      </video>
     </div>
 
     <button class="splash-skip" id="splashSkip" aria-label="Skip animation">Skip &rarr;</button>
-
-    <div class="splash-scene" id="splashScene">
-      <div class="office-window" aria-hidden="true">
-        <div class="window-pane"></div>
-        <div class="window-bar window-bar-h"></div>
-        <div class="window-bar window-bar-v"></div>
-        <div class="window-glow"></div>
-      </div>
-
-      <div class="office-plant" aria-hidden="true">
-        <div class="plant-stem"></div>
-        <div class="plant-leaf plant-leaf-1"></div>
-        <div class="plant-leaf plant-leaf-2"></div>
-        <div class="plant-leaf plant-leaf-3"></div>
-        <div class="plant-pot"></div>
-      </div>
-
-      <div class="reception-desk" aria-hidden="true">
-        <div class="desk-top"></div>
-        <div class="desk-front"></div>
-        <div class="desk-clipboard">
-          <div class="clipboard-clip"></div>
-        </div>
-      </div>
-
-      <svg class="splash-path" viewBox="0 0 400 4" aria-hidden="true">
-        <line x1="0" y1="2" x2="400" y2="2" stroke="url(#pathGrad)" stroke-width="4" stroke-linecap="round"/>
-        <defs>
-          <linearGradient id="pathGrad" x1="0" y1="0" x2="1" y2="0">
-            <stop offset="0%" stop-color="rgba(201,149,45,0)"/>
-            <stop offset="50%" stop-color="rgba(201,149,45,0.6)"/>
-            <stop offset="100%" stop-color="rgba(201,149,45,0)"/>
-          </linearGradient>
-        </defs>
-      </svg>
-
-      <div class="milestone milestone-1" aria-hidden="true"></div>
-      <div class="milestone milestone-2" aria-hidden="true"></div>
-      <div class="milestone milestone-3" aria-hidden="true"></div>
-
-      <div class="splash-character" id="splashChar">
-        <div class="char-head">
-          <div class="char-head-inner"></div>
-        </div>
-        <div class="char-body">
-          <div class="char-collar"></div>
-          <div class="char-badge"></div>
-        </div>
-        <div class="char-arm char-arm-left"></div>
-        <div class="char-arm char-arm-right" id="charArm">
-          <div class="char-hand"></div>
-        </div>
-        <div class="char-leg char-leg-left" id="legLeft"></div>
-        <div class="char-leg char-leg-right" id="legRight"></div>
-        <div class="char-shadow"></div>
-      </div>
-    </div>
 
     <div class="splash-brand" id="splashBrand">
       <div class="splash-logo-mark">
@@ -86,6 +37,14 @@
         <span>Explore</span>
         <svg width="20" height="20" viewBox="0 0 20 20" fill="none"><path d="M4 10h12M10 4l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
       </button>
+    </div>
+
+    <div class="splash-dots" id="splashDots" aria-hidden="true">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
     </div>
 
     <div class="splash-progress" aria-hidden="true">

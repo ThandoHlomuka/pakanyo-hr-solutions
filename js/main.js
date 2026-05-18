@@ -9,17 +9,36 @@
     var skipBtn = document.getElementById('splashSkip');
     var progressBar = document.getElementById('splashProgress');
     var brand = document.getElementById('splashBrand');
+    var slides = document.querySelectorAll('.splash-slide');
+    var dots = document.querySelectorAll('.dot');
 
     if (!splash) return;
 
     var dismissed = false;
     var splashDuration = 5500;
     var progressInterval;
+    var slideIndex = 0;
+    var slideInterval;
+
+    function nextSlide() {
+      if (slides.length === 0) return;
+      slides[slideIndex].classList.remove('active');
+      dots[slideIndex].classList.remove('active');
+      slideIndex = (slideIndex + 1) % slides.length;
+      slides[slideIndex].classList.add('active');
+      dots[slideIndex].classList.add('active');
+    }
+
+    function startSlideshow() {
+      if (slides.length < 2) return;
+      slideInterval = setInterval(nextSlide, 3000);
+    }
 
     function dismissSplash() {
       if (dismissed) return;
       dismissed = true;
       clearInterval(progressInterval);
+      clearInterval(slideInterval);
       splash.classList.add('hidden');
       document.body.style.overflow = '';
       setTimeout(function() {
@@ -40,10 +59,11 @@
     document.body.style.overflow = 'hidden';
 
     startProgress();
+    startSlideshow();
 
     setTimeout(function() {
       if (!dismissed && brand) brand.classList.add('revealed');
-    }, 3800);
+    }, 1800);
 
     if (enterBtn) {
       enterBtn.addEventListener('click', dismissSplash);
