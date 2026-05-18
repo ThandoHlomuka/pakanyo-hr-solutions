@@ -254,6 +254,76 @@
     });
   }
 
+  /* ─── Consultation Modal ─── */
+  function initConsultModal() {
+    var openBtn = document.getElementById('bookConsultBtn');
+    var modal = document.getElementById('consultModal');
+    var closeBtn = document.getElementById('consultModalClose');
+    if (!openBtn || !modal) return;
+
+    function openModal() {
+      modal.classList.add('open');
+      document.body.classList.add('modal-open');
+    }
+
+    function closeModal() {
+      modal.classList.remove('open');
+      document.body.classList.remove('modal-open');
+    }
+
+    openBtn.addEventListener('click', openModal);
+
+    if (closeBtn) closeBtn.addEventListener('click', closeModal);
+
+    modal.addEventListener('click', function(e) {
+      if (e.target === modal) closeModal();
+    });
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.classList.contains('open')) closeModal();
+    });
+
+    var form = document.getElementById('consultForm');
+    if (form) {
+      form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        var feedback = document.getElementById('consultFeedback');
+        if (!feedback) return;
+        var btn = form.querySelector('button[type="submit"]');
+        btn.disabled = true;
+        btn.textContent = 'Sending...';
+        feedback.style.display = 'none';
+        feedback.className = '';
+        var formData = new FormData(form);
+        var params = new URLSearchParams();
+        formData.forEach(function(value, key) { params.append(key, value); });
+        fetch('https://formspree.io/f/xqapqkqz', {
+          method: 'POST',
+          body: params,
+          headers: { 'Accept': 'application/json' }
+        }).then(function(res) {
+          if (res.ok) {
+            feedback.style.display = 'block';
+            feedback.style.background = 'rgba(26,122,107,0.1)';
+            feedback.style.color = 'var(--accent)';
+            feedback.textContent = 'Thank you! Your booking request has been sent. We\'ll be in touch within 24 hours.';
+            form.reset();
+          } else {
+            throw new Error('Server error');
+          }
+        }).catch(function() {
+          feedback.style.display = 'block';
+          feedback.style.background = 'rgba(201,149,45,0.1)';
+          feedback.style.color = 'var(--secondary-dark)';
+          feedback.textContent = 'Something went wrong. Please email us directly at info@pakanyo.co.za or call 087 255 6507.';
+        }).finally(function() {
+          btn.disabled = false;
+          btn.textContent = 'Send Booking Request';
+        });
+      });
+    }
+  }
+
   /* ─── Boot ─── */
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
@@ -263,6 +333,7 @@
       initActiveLink();
       initContactForm();
       initTrustCounters();
+      initConsultModal();
     });
   } else {
     initSplash();
@@ -271,6 +342,7 @@
     initActiveLink();
     initContactForm();
     initTrustCounters();
+    initConsultModal();
   }
 
 })();

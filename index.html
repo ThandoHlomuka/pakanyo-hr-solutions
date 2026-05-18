@@ -81,7 +81,7 @@
         <h1>Empowering Businesses Through People, <span>Skills &amp; Leadership</span></h1>
         <p>Pakanyo HR Solutions helps organisations recruit top talent, develop confident leaders, and improve workforce performance through accredited training, HR consulting, recruitment, and skills development solutions.</p>
         <div class="hero-buttons">
-          <a href="contact.html" class="btn btn-primary">Book a Consultation</a>
+          <button class="btn btn-primary" id="bookConsultBtn">Book a Consultation</button>
           <a href="programmes.html" class="btn btn-outline">View Training Programmes</a>
         </div>
       </div>
@@ -368,6 +368,50 @@
       </div>
     </div>
   </footer>
+
+  <div class="modal-overlay" id="consultModal">
+    <div class="modal-content">
+      <button class="modal-close" id="consultModalClose" aria-label="Close">&times;</button>
+      <h3>Book a Consultation</h3>
+      <p class="modal-sub">Fill in your details and we'll get back to you within 24 hours.</p>
+      <form id="consultForm">
+        <div class="form-group">
+          <label for="consult-name">Full Name</label>
+          <input type="text" id="consult-name" name="name" placeholder="Your full name" required>
+        </div>
+        <div class="form-group">
+          <label for="consult-company">Company</label>
+          <input type="text" id="consult-company" name="company" placeholder="Your company name">
+        </div>
+        <div class="form-group">
+          <label for="consult-email">Email Address</label>
+          <input type="email" id="consult-email" name="email" placeholder="your@email.com" required>
+        </div>
+        <div class="form-group">
+          <label for="consult-phone">Phone Number</label>
+          <input type="tel" id="consult-phone" name="phone" placeholder="+27 XX XXX XXXX" required>
+        </div>
+        <div class="form-group">
+          <label for="consult-service">Service Interested In</label>
+          <select id="consult-service" name="service">
+            <option value="">Select a service...</option>
+            <option value="occupational-qualifications">Occupational Qualifications</option>
+            <option value="skills-programmes">Skills Programmes</option>
+            <option value="recruitment">Recruitment &amp; Talent Solutions</option>
+            <option value="team-performance">Team Performance Solutions</option>
+            <option value="learning-materials">Learning Material Development</option>
+            <option value="other">Other / General Enquiry</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="consult-message">Message</label>
+          <textarea id="consult-message" name="message" placeholder="Tell us about your requirements..." rows="4"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" style="width:100%;justify-content:center;">Send Booking Request</button>
+        <div id="consultFeedback" style="display:none;margin-top:16px;padding:14px 20px;border-radius:10px;font-weight:600;text-align:center;"></div>
+      </form>
+    </div>
+  </div>
 
   <script src="js/main.js"></script>
 </body>
