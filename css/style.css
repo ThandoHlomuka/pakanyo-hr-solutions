@@ -402,31 +402,51 @@ textarea::placeholder {
   max-width: 460px;
 }
 
-.hero-card-stats {
+.hero-card-badges {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: 14px;
 }
 
-.stat-item {
-  text-align: center;
-  padding: 20px;
-  background: rgba(255, 255, 255, 0.05);
+.accred-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 14px;
+  background: rgba(255, 255, 255, 0.06);
   border-radius: var(--radius);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  transition: var(--transition);
 }
 
-.stat-number {
-  font-size: 2rem;
-  font-weight: 800;
+.accred-badge:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(201, 149, 45, 0.3);
+  transform: translateY(-2px);
+}
+
+.accred-badge svg {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
   color: var(--secondary);
-  display: block;
 }
 
-.stat-label {
-  font-size: 0.85rem;
-  color: rgba(255, 255, 255, 0.7);
-  margin-top: 4px;
+.accred-badge-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.accred-badge-text strong {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--white);
+}
+
+.accred-badge-text span {
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.65);
+  line-height: 1.2;
 }
 
 .hero-card-features {
@@ -444,17 +464,11 @@ textarea::placeholder {
   font-size: 0.9rem;
 }
 
-.hero-card-feature .icon {
+.hero-card-feature .check-icon {
   width: 28px;
   height: 28px;
-  background: rgba(201, 149, 45, 0.2);
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: var(--secondary);
-  font-size: 0.8rem;
   flex-shrink: 0;
+  color: var(--secondary);
 }
 
 /* ─── Sections ─── */
@@ -1517,8 +1531,9 @@ textarea::placeholder {
   .hero-card {
     padding: 28px;
   }
-  .stat-number {
-    font-size: 1.6rem;
+  .accred-badge svg {
+    width: 30px;
+    height: 30px;
   }
 }
 
