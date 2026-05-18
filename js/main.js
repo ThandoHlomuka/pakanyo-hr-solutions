@@ -20,74 +20,6 @@
     var slideIndex = 0;
     var slideInterval;
 
-    function speakWelcome() {
-      if (!('speechSynthesis' in window)) return;
-      if (!window.speechSynthesis) return;
-
-      window.speechSynthesis.cancel();
-
-      var utterance = new SpeechSynthesisUtterance('Welcome to Pakanyo HR Solutions');
-      utterance.rate = 0.88;
-      utterance.pitch = 1.05;
-      utterance.volume = 1;
-
-      try {
-        var voices = window.speechSynthesis.getVoices();
-        var femaleVoice = voices.find(function(v) {
-          var name = v.name.toLowerCase();
-          var lang = (v.lang || '').toLowerCase();
-          return /female/i.test(name) && /english/i.test(name) && (/south africa/i.test(name) || lang === 'en-za');
-        });
-        if (!femaleVoice) {
-          femaleVoice = voices.find(function(v) {
-            var name = v.name.toLowerCase();
-            return /female/i.test(name) && /english/i.test(name);
-          });
-        }
-        if (femaleVoice) utterance.voice = femaleVoice;
-      } catch(e) {}
-
-      try { window.speechSynthesis.speak(utterance); } catch(e) {}
-
-      if (window.speechSynthesis.pending || window.speechSynthesis.speaking) {
-        var resumeInterval = setInterval(function() {
-          if (dismissed) { clearInterval(resumeInterval); return; }
-          if (window.speechSynthesis.pending === false) clearInterval(resumeInterval);
-          try { window.speechSynthesis.resume(); } catch(e) {}
-        }, 200);
-      }
-    }
-
-    function initWelcomeSpeech() {
-      if (!('speechSynthesis' in window)) return;
-      try {
-        var voices = window.speechSynthesis.getVoices();
-        if (voices.length > 0) {
-          speakWelcome();
-        } else {
-          var onVoices = function() {
-            window.speechSynthesis.removeEventListener('voiceschanged', onVoices);
-            speakWelcome();
-          };
-          window.speechSynthesis.addEventListener('voiceschanged', onVoices);
-          setTimeout(function() {
-            window.speechSynthesis.removeEventListener('voiceschanged', onVoices);
-            if (!dismissed) speakWelcome();
-          }, 1500);
-        }
-      } catch(e) {
-        setTimeout(function() { if (!dismissed) speakWelcome(); }, 500);
-      }
-    }
-
-    initWelcomeSpeech();
-
-    setTimeout(function() {
-      if (!dismissed && (!window.speechSynthesis || (!window.speechSynthesis.speaking && !window.speechSynthesis.pending))) {
-        speakWelcome();
-      }
-    }, 2000);
-
     function nextSlide() {
       if (slides.length === 0) return;
       slides[slideIndex].classList.remove('active');
@@ -107,7 +39,6 @@
       dismissed = true;
       clearInterval(progressInterval);
       clearInterval(slideInterval);
-      if ('speechSynthesis' in window) window.speechSynthesis.cancel();
       splash.classList.add('hidden');
       document.body.style.overflow = '';
       setTimeout(function() {
