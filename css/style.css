@@ -2452,88 +2452,78 @@ body.modal-open {
   }
 }
 
-/* ─── References / Client Referee Cards ─── */
-.referee-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 32px;
-  margin-top: 60px;
-}
-
-.referee-card {
-  background: var(--white);
-  border: 1px solid var(--gray-light);
+/* ─── References / Client Reference Table ─── */
+.table-wrapper {
+  overflow-x: auto;
+  margin-top: 48px;
   border-radius: var(--radius);
-  padding: 36px 32px;
-  transition: var(--transition);
-  display: flex;
-  flex-direction: column;
-}
-
-.referee-card:hover {
-  border-color: var(--secondary);
   box-shadow: var(--shadow-md);
-  transform: translateY(-4px);
 }
 
-.referee-icon {
-  width: 56px;
-  height: 56px;
-  background: linear-gradient(135deg, rgba(201, 149, 45, 0.1), rgba(201, 149, 45, 0.05));
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-bottom: 20px;
-  color: var(--secondary);
-  flex-shrink: 0;
+.ref-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.88rem;
+  background: var(--white);
+  min-width: 700px;
 }
 
-.referee-card h3 {
+.ref-table thead {
+  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+}
+
+.ref-table th {
   font-family: var(--font-heading);
-  font-size: 1.1rem;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--white);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  padding: 16px 14px;
+  text-align: left;
+  white-space: nowrap;
+}
+
+.ref-table tbody tr {
+  border-bottom: 1px solid var(--gray-light);
+  transition: background 0.2s;
+}
+
+.ref-table tbody tr:nth-child(even) {
+  background: rgba(15, 43, 70, 0.02);
+}
+
+.ref-table tbody tr:hover {
+  background: rgba(201, 149, 45, 0.06);
+}
+
+.ref-table td {
+  padding: 14px;
+  vertical-align: top;
+  line-height: 1.6;
+  color: var(--dark);
+}
+
+.ref-table td.company-cell {
   font-weight: 700;
   color: var(--primary);
-  margin-bottom: 6px;
-  line-height: 1.4;
+  white-space: nowrap;
 }
 
-.referee-sector {
-  display: inline-block;
-  font-size: 0.78rem;
+.ref-table td.value-cell {
   font-weight: 600;
   color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  margin-bottom: 14px;
+  white-space: nowrap;
 }
 
-.referee-card p {
-  font-size: 0.92rem;
-  color: var(--gray);
-  line-height: 1.7;
-  margin-bottom: 16px;
-  flex: 1;
-}
-
-.referee-period {
-  font-size: 0.82rem;
-  font-weight: 600;
-  color: var(--primary-light);
-  border-top: 1px solid var(--gray-light);
-  padding-top: 14px;
-  margin-top: auto;
-}
-
-@media (max-width: 900px) {
-  .referee-grid {
-    grid-template-columns: repeat(2, 1fr);
+@media (max-width: 768px) {
+  .ref-table {
+    font-size: 0.82rem;
+    min-width: 600px;
   }
-}
-
-@media (max-width: 600px) {
-  .referee-grid {
-    grid-template-columns: 1fr;
+  .ref-table th,
+  .ref-table td {
+    padding: 10px 8px;
   }
 }
 
