@@ -289,18 +289,6 @@ textarea::placeholder {
   transform: translateY(-3px);
 }
 
-.btn-outline-dark {
-  background: transparent;
-  color: var(--primary);
-  border: 2px solid var(--primary);
-}
-
-.btn-outline-dark:hover {
-  background: var(--primary);
-  color: var(--white);
-  transform: translateY(-3px);
-}
-
 /* ─── Hero ─── */
 .hero {
   min-height: 100vh;
@@ -1350,10 +1338,6 @@ textarea::placeholder {
   font-weight: 700;
 }
 
-.programme-card.customised .programme-card-header {
-  background: linear-gradient(135deg, rgba(201, 149, 45, 0.05), rgba(201, 149, 45, 0.02));
-}
-
 /* ─── Contact Page ─── */
 .contact-grid {
   display: grid;
@@ -1667,11 +1651,6 @@ body.modal-open {
 }
 
 .js-enabled .animate-on-scroll.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.no-js .animate-on-scroll {
   opacity: 1;
   transform: translateY(0);
 }
@@ -2229,10 +2208,6 @@ body.modal-open {
   .btn {
     padding: 12px 24px;
     font-size: 0.9rem;
-  }
-
-  .programme-card.customised {
-    grid-column: 1 / -1;
   }
 
   .container {

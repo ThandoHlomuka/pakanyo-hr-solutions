@@ -28,10 +28,10 @@
     function nextSlide() {
       if (slides.length === 0) return;
       slides[slideIndex].classList.remove('active');
-      dots[slideIndex].classList.remove('active');
+      if (dots[slideIndex]) dots[slideIndex].classList.remove('active');
       slideIndex = (slideIndex + 1) % slides.length;
       slides[slideIndex].classList.add('active');
-      dots[slideIndex].classList.add('active');
+      if (dots[slideIndex]) dots[slideIndex].classList.add('active');
     }
 
     function startSlideshow() {
@@ -111,6 +111,7 @@
       var feedback = document.getElementById('formFeedback');
       if (!feedback) return;
       var btn = form.querySelector('button[type="submit"]');
+      if (!btn) return;
       btn.disabled = true;
       btn.textContent = 'Sending...';
       feedback.style.display = 'none';
@@ -169,9 +170,9 @@
       if (!ticking) {
         window.requestAnimationFrame(function() {
           if (window.pageYOffset > 100) {
-            navbar.classList.add('scrolled');
+            if (navbar) navbar.classList.add('scrolled');
           } else {
-            navbar.classList.remove('scrolled');
+            if (navbar) navbar.classList.remove('scrolled');
           }
           ticking = false;
         });
@@ -245,7 +246,7 @@
     });
 
     fills.forEach(function(fill, i) {
-      var w = parseInt(fill.getAttribute('data-width'), 10);
+      var w = parseFloat(fill.getAttribute('data-width')) || 0;
       setTimeout(function() {
         fill.style.width = w + '%';
       }, i * 200);
@@ -258,14 +259,13 @@
         var duration = 1500;
         var step = Math.ceil(target / (duration / 16));
         var current = 0;
-        var suffix = target >= 1000 ? '+' : '+';
         function tick() {
           current += step;
           if (current >= target) {
-            val.textContent = target + suffix;
+            val.textContent = target + '+';
             return;
           }
-          val.textContent = current + suffix;
+          val.textContent = current + '+';
           requestAnimationFrame(tick);
         }
         tick();
@@ -275,7 +275,7 @@
 
   /* ─── Consultation Modal ─── */
   function initConsultModal() {
-    var openBtns = document.querySelectorAll('.book-consult-btn, #bookConsultBtn');
+    var openBtns = document.querySelectorAll('.book-consult-btn');
     var modal = document.getElementById('consultModal');
     var closeBtn = document.getElementById('consultModalClose');
     if (openBtns.length === 0 || !modal) return;
@@ -311,6 +311,7 @@
         var feedback = document.getElementById('consultFeedback');
         if (!feedback) return;
         var btn = form.querySelector('button[type="submit"]');
+        if (!btn) return;
         btn.disabled = true;
         btn.textContent = 'Sending...';
         feedback.style.display = 'none';
