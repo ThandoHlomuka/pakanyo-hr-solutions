@@ -2484,6 +2484,14 @@ body.modal-open {
   white-space: nowrap;
 }
 
+.ref-table tbody tr.highlight-row {
+  background: rgba(201, 149, 45, 0.15);
+}
+
+.ref-table tbody tr.highlight-row:hover {
+  background: rgba(201, 149, 45, 0.22);
+}
+
 .ref-table tbody tr {
   border-bottom: 1px solid var(--gray-light);
   transition: background 0.2s;
@@ -2491,6 +2499,10 @@ body.modal-open {
 
 .ref-table tbody tr:nth-child(even) {
   background: rgba(15, 43, 70, 0.02);
+}
+
+.ref-table tbody tr:nth-child(even).highlight-row {
+  background: rgba(201, 149, 45, 0.18);
 }
 
 .ref-table tbody tr:hover {
