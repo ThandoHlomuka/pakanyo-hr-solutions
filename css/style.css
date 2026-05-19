@@ -646,6 +646,11 @@ textarea::placeholder {
   font-size: 1.2rem;
 }
 
+.why-item .icon svg {
+  width: 26px;
+  height: 26px;
+}
+
 .why-item h4 {
   font-size: 1rem;
   font-weight: 700;
