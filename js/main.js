@@ -275,10 +275,10 @@
 
   /* ─── Consultation Modal ─── */
   function initConsultModal() {
-    var openBtn = document.getElementById('bookConsultBtn');
+    var openBtns = document.querySelectorAll('.book-consult-btn, #bookConsultBtn');
     var modal = document.getElementById('consultModal');
     var closeBtn = document.getElementById('consultModalClose');
-    if (!openBtn || !modal) return;
+    if (openBtns.length === 0 || !modal) return;
 
     function openModal() {
       modal.classList.add('open');
@@ -290,7 +290,9 @@
       document.body.classList.remove('modal-open');
     }
 
-    openBtn.addEventListener('click', openModal);
+    openBtns.forEach(function(btn) {
+      btn.addEventListener('click', openModal);
+    });
 
     if (closeBtn) closeBtn.addEventListener('click', closeModal);
 
@@ -343,16 +345,71 @@
     }
   }
 
-  /* ─── Hero Slideshow ─── */
-  function initHeroSlideshow() {
-    var slides = document.querySelectorAll('.page-hero-slideshow .hero-bg-slide');
+  /* ─── Testimonials ─── */
+  function initTestimonials() {
+    var card = document.querySelector('.testimonials-card');
+    if (!card) return;
+    var slides = card.querySelectorAll('.testimonial-slide');
+    var dotsContainer = card.querySelector('.testimonial-dots');
     if (slides.length < 2) return;
-    var index = 0;
-    setInterval(function() {
-      slides[index].classList.remove('active');
-      index = (index + 1) % slides.length;
-      slides[index].classList.add('active');
-    }, 4000);
+
+    slides.forEach(function(_, i) {
+      var dot = document.createElement('span');
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', function() {
+        showSlide(i);
+      });
+      dotsContainer.appendChild(dot);
+    });
+
+    var dots = dotsContainer.querySelectorAll('span');
+    var current = 0;
+    var interval;
+
+    function showSlide(index) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = index;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    function startRotation() {
+      interval = setInterval(function() {
+        showSlide((current + 1) % slides.length);
+      }, 5000);
+    }
+
+    function stopRotation() {
+      clearInterval(interval);
+    }
+
+    card.addEventListener('mouseenter', stopRotation);
+    card.addEventListener('mouseleave', startRotation);
+    startRotation();
+  }
+
+  /* ─── Hero & CTA Slideshow ─── */
+  function initSlideshows() {
+    var heroSlides = document.querySelectorAll('.page-hero-slideshow .hero-bg-slide');
+    if (heroSlides.length >= 2) {
+      var heroIndex = 0;
+      setInterval(function() {
+        heroSlides[heroIndex].classList.remove('active');
+        heroIndex = (heroIndex + 1) % heroSlides.length;
+        heroSlides[heroIndex].classList.add('active');
+      }, 4000);
+    }
+
+    var ctaSlides = document.querySelectorAll('.cta-contact .cta-bg-slide');
+    if (ctaSlides.length >= 2) {
+      var ctaIndex = 0;
+      setInterval(function() {
+        ctaSlides[ctaIndex].classList.remove('active');
+        ctaIndex = (ctaIndex + 1) % ctaSlides.length;
+        ctaSlides[ctaIndex].classList.add('active');
+      }, 4500);
+    }
   }
 
   /* ─── Boot ─── */
@@ -365,7 +422,8 @@
       initContactForm();
       initTrustCounters();
       initConsultModal();
-      initHeroSlideshow();
+      initSlideshows();
+      initTestimonials();
     });
   } else {
     initSplash();
@@ -375,7 +433,8 @@
     initContactForm();
     initTrustCounters();
     initConsultModal();
-    initHeroSlideshow();
+    initSlideshows();
+    initTestimonials();
   }
 
 })();
