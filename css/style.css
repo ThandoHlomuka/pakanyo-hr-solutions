@@ -41,9 +41,9 @@ html {
 
 body {
   font-family: var(--font);
-  color: var(--dark);
+  color: rgba(255, 255, 255, 0.85);
   line-height: 1.7;
-  background: var(--white);
+  background: var(--primary);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
@@ -103,14 +103,14 @@ input[type="text"]::-webkit-input-placeholder,
 input[type="email"]::-webkit-input-placeholder,
 input[type="tel"]::-webkit-input-placeholder,
 textarea::-webkit-input-placeholder {
-  color: #adb5bd;
+  color: rgba(255, 255, 255, 0.35);
 }
 
 input[type="text"]::placeholder,
 input[type="email"]::placeholder,
 input[type="tel"]::placeholder,
 textarea::placeholder {
-  color: #adb5bd;
+  color: rgba(255, 255, 255, 0.35);
 }
 
 /* ─── Navigation ─── */
@@ -534,10 +534,11 @@ textarea::placeholder {
 /* ─── Sections ─── */
 .section {
   padding: 100px 0;
+  background: var(--primary);
 }
 
 .section-alt {
-  background: var(--warm);
+  background: var(--primary-dark);
   position: relative;
 }
 
@@ -548,7 +549,7 @@ textarea::placeholder {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(201, 149, 45, 0.15), transparent);
+  background: linear-gradient(90deg, transparent, rgba(201, 149, 45, 0.2), transparent);
 }
 
 .section-alt::after {
@@ -558,7 +559,7 @@ textarea::placeholder {
   left: 0;
   right: 0;
   height: 1px;
-  background: linear-gradient(90deg, transparent, rgba(201, 149, 45, 0.15), transparent);
+  background: linear-gradient(90deg, transparent, rgba(201, 149, 45, 0.2), transparent);
 }
 
 .section-header {
@@ -583,21 +584,21 @@ textarea::placeholder {
 .section-header h2 {
   font-size: 2.5rem;
   font-weight: 800;
-  color: var(--primary);
+  color: var(--white);
   line-height: 1.15;
   margin-bottom: 16px;
 }
 
 .section-header p {
-  color: var(--gray);
+  color: rgba(255, 255, 255, 0.65);
   font-size: 1.05rem;
   line-height: 1.8;
 }
 
 .section-tag {
   display: inline-block;
-  background: rgba(201, 149, 45, 0.1);
-  color: var(--secondary-dark);
+  background: rgba(201, 149, 45, 0.12);
+  color: var(--secondary-light);
   padding: 6px 18px;
   border-radius: 50px;
   font-size: 0.78rem;
@@ -609,8 +610,8 @@ textarea::placeholder {
 
 .section-badge {
   display: inline-block;
-  background: rgba(201, 149, 45, 0.1);
-  color: var(--secondary-dark);
+  background: rgba(201, 149, 45, 0.12);
+  color: var(--secondary-light);
   padding: 6px 18px;
   border-radius: 50px;
   font-size: 0.78rem;
@@ -618,20 +619,6 @@ textarea::placeholder {
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 16px;
-}
-
-.section-header h2 {
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: var(--primary);
-  line-height: 1.15;
-  margin-bottom: 16px;
-}
-
-.section-header p {
-  color: var(--gray);
-  font-size: 1.05rem;
-  line-height: 1.8;
 }
 
 /* ─── Cards Grid ─── */
@@ -642,11 +629,11 @@ textarea::placeholder {
 }
 
 .card {
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.04);
   border-radius: var(--radius);
   padding: 36px 28px;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--gray-light);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(201, 149, 45, 0.12);
   transition: var(--transition);
   position: relative;
   overflow: hidden;
@@ -660,14 +647,14 @@ textarea::placeholder {
   right: 0;
   height: 4px;
   background: linear-gradient(90deg, var(--secondary), var(--secondary-light));
-  opacity: 0.4;
+  opacity: 0.5;
   transition: var(--transition);
 }
 
 .card:hover {
   transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
-  border-color: transparent;
+  box-shadow: 0 12px 48px rgba(0, 0, 0, 0.25);
+  border-color: rgba(201, 149, 45, 0.3);
 }
 
 .card:hover::before {
@@ -678,25 +665,25 @@ textarea::placeholder {
 .card-icon {
   width: 56px;
   height: 56px;
-  background: linear-gradient(135deg, rgba(201, 149, 45, 0.1), rgba(201, 149, 45, 0.05));
+  background: linear-gradient(135deg, rgba(201, 149, 45, 0.15), rgba(201, 149, 45, 0.06));
   border-radius: 14px;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.5rem;
   margin-bottom: 20px;
-  color: var(--secondary);
+  color: var(--secondary-light);
 }
 
 .card h3 {
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--primary);
+  color: var(--white);
   margin-bottom: 12px;
 }
 
 .card p {
-  color: var(--gray);
+  color: rgba(255, 255, 255, 0.65);
   font-size: 0.92rem;
   line-height: 1.7;
 }
@@ -712,16 +699,17 @@ textarea::placeholder {
   display: flex;
   gap: 18px;
   padding: 28px;
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.04);
   border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--gray-light);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(201, 149, 45, 0.1);
   transition: var(--transition);
 }
 
 .why-item:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  border-color: rgba(201, 149, 45, 0.25);
 }
 
 .why-item .icon {
@@ -746,13 +734,13 @@ textarea::placeholder {
 .why-item h4 {
   font-size: 1rem;
   font-weight: 700;
-  color: var(--primary);
+  color: var(--white);
   margin-bottom: 6px;
 }
 
 .why-item p {
   font-size: 0.88rem;
-  color: var(--gray);
+  color: rgba(255, 255, 255, 0.6);
   line-height: 1.6;
 }
 
@@ -780,7 +768,7 @@ textarea::placeholder {
 .trust-label {
   font-size: 0.95rem;
   font-weight: 600;
-  color: var(--primary);
+  color: var(--white);
 }
 
 .trust-value {
@@ -792,7 +780,7 @@ textarea::placeholder {
 .trust-bar {
   width: 100%;
   height: 8px;
-  background: var(--gray-light);
+  background: rgba(255, 255, 255, 0.08);
   border-radius: 10px;
   overflow: hidden;
 }
@@ -874,15 +862,16 @@ textarea::placeholder {
 .gallery-item {
   border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--gray-light);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  border: 1px solid rgba(201, 149, 45, 0.1);
   transition: var(--transition);
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.04);
 }
 
 .gallery-item:hover {
   transform: translateY(-6px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.25);
+  border-color: rgba(201, 149, 45, 0.25);
 }
 
 .gallery-image {
@@ -906,7 +895,7 @@ textarea::placeholder {
   padding: 16px 20px;
   font-size: 0.88rem;
   font-weight: 600;
-  color: var(--primary);
+  color: var(--white);
   text-align: center;
 }
 
@@ -1121,7 +1110,7 @@ textarea::placeholder {
 
 .story-content p {
   font-size: 1.05rem;
-  color: var(--gray);
+  color: rgba(255, 255, 255, 0.65);
   line-height: 1.8;
 }
 
@@ -1133,17 +1122,18 @@ textarea::placeholder {
 }
 
 .vm-card {
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.04);
   border-radius: var(--radius);
   padding: 40px;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--gray-light);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(201, 149, 45, 0.12);
   transition: var(--transition);
 }
 
 .vm-card:hover {
   transform: translateY(-6px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
+  border-color: rgba(201, 149, 45, 0.25);
 }
 
 .vm-card .icon {
@@ -1170,12 +1160,12 @@ textarea::placeholder {
 .vm-card h3 {
   font-size: 1.3rem;
   font-weight: 700;
-  color: var(--primary);
+  color: var(--white);
   margin-bottom: 12px;
 }
 
 .vm-card p {
-  color: var(--gray);
+  color: rgba(255, 255, 255, 0.65);
   font-size: 0.95rem;
   line-height: 1.7;
 }
@@ -1192,16 +1182,17 @@ textarea::placeholder {
 .approach-item {
   text-align: center;
   padding: 32px 20px;
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.04);
   border-radius: var(--radius);
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--gray-light);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(201, 149, 45, 0.1);
   transition: var(--transition);
 }
 
 .approach-item:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  border-color: rgba(201, 149, 45, 0.2);
 }
 
 .approach-item .num {
@@ -1215,23 +1206,24 @@ textarea::placeholder {
 .approach-item h4 {
   font-size: 1rem;
   font-weight: 600;
-  color: var(--primary);
+  color: var(--white);
 }
 
 /* ─── Services Page ─── */
 .service-detail {
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.04);
   border-radius: var(--radius);
   padding: 40px;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--gray-light);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(201, 149, 45, 0.1);
   margin-bottom: 28px;
   transition: var(--transition);
 }
 
 .service-detail:hover {
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
   transform: translateY(-4px);
+  border-color: rgba(201, 149, 45, 0.25);
 }
 
 .service-detail-header {
@@ -1281,12 +1273,12 @@ textarea::placeholder {
 .service-detail h3 {
   font-size: 1.2rem;
   font-weight: 700;
-  color: var(--primary);
+  color: var(--white);
   margin-bottom: 8px;
 }
 
 .service-detail p {
-  color: var(--gray);
+  color: rgba(255, 255, 255, 0.65);
   font-size: 0.92rem;
   margin-bottom: 16px;
 }
@@ -1298,39 +1290,40 @@ textarea::placeholder {
 }
 
 .service-features span {
-  background: var(--light);
-  color: var(--primary);
+  background: rgba(255, 255, 255, 0.06);
+  color: rgba(255, 255, 255, 0.8);
   padding: 6px 16px;
   border-radius: 50px;
   font-size: 0.82rem;
   font-weight: 500;
-  border: 1px solid var(--gray-light);
+  border: 1px solid rgba(201, 149, 45, 0.1);
 }
 
 /* ─── Programmes ─── */
 .programme-card {
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.04);
   border-radius: var(--radius);
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--gray-light);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(201, 149, 45, 0.1);
   transition: var(--transition);
 }
 
 .programme-card:hover {
   transform: translateY(-8px);
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.25);
+  border-color: rgba(201, 149, 45, 0.25);
 }
 
 .programme-card-header {
   padding: 32px 28px 20px;
-  border-bottom: 1px solid var(--gray-light);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .programme-card-header .icon {
   width: 56px;
   height: 56px;
-  background: linear-gradient(135deg, rgba(201, 149, 45, 0.15), rgba(201, 149, 45, 0.06));
+  background: linear-gradient(135deg, rgba(201, 149, 45, 0.2), rgba(201, 149, 45, 0.08));
   border-radius: 14px;
   display: flex;
   align-items: center;
@@ -1358,8 +1351,8 @@ textarea::placeholder {
 .programme-card.visible .programme-card-header .icon {
   opacity: 1;
   transform: scale(1) rotate(0) translateY(0);
-  box-shadow: 0 8px 32px rgba(201, 149, 45, 0.15);
-  background: linear-gradient(135deg, rgba(201, 149, 45, 0.2), rgba(201, 149, 45, 0.08));
+  box-shadow: 0 8px 32px rgba(201, 149, 45, 0.2);
+  background: linear-gradient(135deg, rgba(201, 149, 45, 0.25), rgba(201, 149, 45, 0.1));
   animation: cardIconBurst 0.8s ease forwards, cardIconGlow 2s ease-in-out 1s infinite;
 }
 
@@ -1368,7 +1361,7 @@ textarea::placeholder {
   position: absolute;
   inset: 0;
   border-radius: 14px;
-  border: 1.5px solid rgba(201, 149, 45, 0.15);
+  border: 1.5px solid rgba(201, 149, 45, 0.2);
   opacity: 0;
   transition: opacity 0.5s ease;
 }
@@ -1415,12 +1408,12 @@ textarea::placeholder {
 .programme-card-header h3 {
   font-size: 1.15rem;
   font-weight: 700;
-  color: var(--primary);
+  color: var(--white);
   margin-bottom: 8px;
 }
 
 .programme-card-header p {
-  color: var(--gray);
+  color: rgba(255, 255, 255, 0.6);
   font-size: 0.85rem;
 }
 
@@ -1440,7 +1433,7 @@ textarea::placeholder {
   align-items: center;
   gap: 10px;
   font-size: 0.9rem;
-  color: var(--dark);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .programme-card-body li::before {
@@ -1458,11 +1451,11 @@ textarea::placeholder {
 }
 
 .contact-form {
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.04);
   border-radius: var(--radius);
   padding: 40px;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--gray-light);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(201, 149, 45, 0.1);
 }
 
 .form-group {
@@ -1473,7 +1466,7 @@ textarea::placeholder {
   display: block;
   font-size: 0.88rem;
   font-weight: 600;
-  color: var(--primary);
+  color: var(--white);
   margin-bottom: 6px;
 }
 
@@ -1482,13 +1475,18 @@ textarea::placeholder {
 .form-group textarea {
   width: 100%;
   padding: 12px 16px;
-  border: 2px solid var(--gray-light);
+  border: 2px solid rgba(255, 255, 255, 0.1);
   border-radius: 10px;
   font-size: 0.95rem;
   font-family: var(--font);
   transition: var(--transition);
-  background: var(--white);
-  color: var(--dark);
+  background: rgba(255, 255, 255, 0.06);
+  color: var(--white);
+}
+
+.form-group select option {
+  background: var(--primary);
+  color: var(--white);
 }
 
 .form-group input:focus,
@@ -1496,7 +1494,8 @@ textarea::placeholder {
 .form-group textarea:focus {
   outline: none;
   border-color: var(--secondary);
-  box-shadow: 0 0 0 4px rgba(201, 149, 45, 0.1);
+  box-shadow: 0 0 0 4px rgba(201, 149, 45, 0.15);
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .form-group textarea {
@@ -1511,17 +1510,17 @@ textarea::placeholder {
 }
 
 .contact-info-card {
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.04);
   border-radius: var(--radius);
   padding: 28px;
-  box-shadow: var(--shadow-sm);
-  border: 1px solid var(--gray-light);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  border: 1px solid rgba(201, 149, 45, 0.1);
   transition: var(--transition);
 }
 
 .contact-info-card:hover {
   transform: translateY(-4px);
-  box-shadow: var(--shadow-md);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.2);
 }
 
 .contact-info-item {
@@ -1529,7 +1528,7 @@ textarea::placeholder {
   align-items: center;
   gap: 16px;
   padding: 12px 0;
-  border-bottom: 1px solid var(--gray-light);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
 
 .contact-info-item:last-child {
@@ -1551,7 +1550,7 @@ textarea::placeholder {
 
 .contact-info-item .label {
   font-size: 0.8rem;
-  color: var(--gray);
+  color: rgba(255, 255, 255, 0.5);
   text-transform: uppercase;
   letter-spacing: 1px;
   font-weight: 600;
@@ -1559,7 +1558,7 @@ textarea::placeholder {
 
 .contact-info-item .value {
   font-size: 0.95rem;
-  color: var(--dark);
+  color: var(--white);
   font-weight: 500;
 }
 
@@ -1580,7 +1579,7 @@ textarea::placeholder {
 
 .testimonial-text {
   font-size: 0.9rem;
-  color: var(--gray);
+  color: rgba(255, 255, 255, 0.7);
   line-height: 1.7;
   font-style: italic;
   margin-bottom: 12px;
@@ -1602,7 +1601,7 @@ textarea::placeholder {
   width: 8px;
   height: 8px;
   border-radius: 50%;
-  background: var(--gray-light);
+  background: rgba(255, 255, 255, 0.15);
   cursor: pointer;
   transition: var(--transition);
 }
@@ -1619,8 +1618,8 @@ textarea::placeholder {
   position: fixed;
   inset: 0;
   z-index: 10000;
-  background: rgba(15, 43, 70, 0.6);
-  backdrop-filter: blur(6px);
+  background: rgba(9, 28, 46, 0.8);
+  backdrop-filter: blur(8px);
   align-items: center;
   justify-content: center;
   padding: 24px;
@@ -1632,14 +1631,15 @@ textarea::placeholder {
 }
 
 .modal-content {
-  background: var(--white);
+  background: var(--primary-dark);
   border-radius: var(--radius-lg);
   padding: 40px;
   max-width: 520px;
   width: 100%;
   position: relative;
   animation: fadeInUp 0.3s ease;
-  box-shadow: var(--shadow-lg);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(201, 149, 45, 0.15);
 }
 
 .modal-close {
@@ -1650,26 +1650,26 @@ textarea::placeholder {
   border: none;
   font-size: 2rem;
   line-height: 1;
-  color: var(--gray);
+  color: rgba(255, 255, 255, 0.4);
   cursor: pointer;
   transition: var(--transition);
   padding: 4px;
 }
 
 .modal-close:hover {
-  color: var(--primary);
+  color: var(--secondary);
 }
 
 .modal-content h3 {
   font-size: 1.4rem;
   font-weight: 800;
-  color: var(--primary);
+  color: var(--white);
   margin-bottom: 8px;
 }
 
 .modal-sub {
   font-size: 0.92rem;
-  color: var(--gray);
+  color: rgba(255, 255, 255, 0.55);
   margin-bottom: 24px;
   line-height: 1.5;
 }
@@ -2192,11 +2192,12 @@ body.modal-open {
     top: 72px;
     left: 0;
     right: 0;
-    background: var(--white);
+    background: var(--primary);
+    border-bottom: 1px solid rgba(201, 149, 45, 0.12);
     flex-direction: column;
     padding: 24px;
     gap: 16px;
-    box-shadow: var(--shadow-md);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
     transform: translateY(-120%);
     transition: var(--transition);
     opacity: 0;
@@ -2216,6 +2217,10 @@ body.modal-open {
     display: block;
   }
 
+  .nav-links a {
+    color: rgba(255, 255, 255, 0.85);
+  }
+
   .nav-cta {
     text-align: center;
     padding: 14px 24px !important;
@@ -2226,14 +2231,17 @@ body.modal-open {
   }
 
   .hamburger.active span:nth-child(1) {
+    background: var(--secondary);
     transform: rotate(45deg) translate(5px, 5px);
   }
 
   .hamburger.active span:nth-child(2) {
+    background: var(--secondary);
     opacity: 0;
   }
 
   .hamburger.active span:nth-child(3) {
+    background: var(--secondary);
     transform: rotate(-45deg) translate(5px, -5px);
   }
 
@@ -2599,7 +2607,7 @@ body.modal-open {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.88rem;
-  background: var(--white);
+  background: rgba(255, 255, 255, 0.04);
   min-width: 700px;
 }
 
@@ -2628,12 +2636,12 @@ body.modal-open {
 }
 
 .ref-table tbody tr {
-  border-bottom: 1px solid var(--gray-light);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
   transition: background 0.2s;
 }
 
 .ref-table tbody tr:nth-child(even) {
-  background: rgba(15, 43, 70, 0.02);
+  background: rgba(255, 255, 255, 0.02);
 }
 
 .ref-table tbody tr:nth-child(even).highlight-row {
@@ -2641,25 +2649,25 @@ body.modal-open {
 }
 
 .ref-table tbody tr:hover {
-  background: rgba(201, 149, 45, 0.06);
+  background: rgba(201, 149, 45, 0.08);
 }
 
 .ref-table td {
   padding: 14px;
   vertical-align: top;
   line-height: 1.6;
-  color: var(--dark);
+  color: rgba(255, 255, 255, 0.8);
 }
 
 .ref-table td.company-cell {
   font-weight: 700;
-  color: var(--primary);
+  color: var(--white);
   white-space: nowrap;
 }
 
 .ref-table td.value-cell {
   font-weight: 600;
-  color: var(--accent);
+  color: var(--secondary-light);
   white-space: nowrap;
 }
 
