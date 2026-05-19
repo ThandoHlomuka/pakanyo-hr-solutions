@@ -2607,7 +2607,7 @@ body.modal-open {
   width: 100%;
   border-collapse: collapse;
   font-size: 0.88rem;
-  background: rgba(255, 255, 255, 0.04);
+  background: var(--white);
   min-width: 700px;
 }
 
@@ -2636,12 +2636,12 @@ body.modal-open {
 }
 
 .ref-table tbody tr {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid var(--gray-light);
   transition: background 0.2s;
 }
 
 .ref-table tbody tr:nth-child(even) {
-  background: rgba(255, 255, 255, 0.02);
+  background: rgba(15, 43, 70, 0.02);
 }
 
 .ref-table tbody tr:nth-child(even).highlight-row {
@@ -2649,25 +2649,25 @@ body.modal-open {
 }
 
 .ref-table tbody tr:hover {
-  background: rgba(201, 149, 45, 0.08);
+  background: rgba(201, 149, 45, 0.06);
 }
 
 .ref-table td {
   padding: 14px;
   vertical-align: top;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.8);
+  color: var(--dark);
 }
 
 .ref-table td.company-cell {
   font-weight: 700;
-  color: var(--white);
+  color: var(--primary);
   white-space: nowrap;
 }
 
 .ref-table td.value-cell {
   font-weight: 600;
-  color: var(--secondary-light);
+  color: var(--accent);
   white-space: nowrap;
 }
 
