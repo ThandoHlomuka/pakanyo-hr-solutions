@@ -2469,14 +2469,14 @@ body.modal-open {
 }
 
 .ref-table thead {
-  background: linear-gradient(135deg, var(--primary), var(--primary-light));
+  background: var(--secondary-light);
 }
 
 .ref-table th {
   font-family: var(--font-heading);
   font-size: 0.8rem;
   font-weight: 700;
-  color: var(--white);
+  color: var(--primary);
   text-transform: uppercase;
   letter-spacing: 0.06em;
   padding: 16px 14px;
