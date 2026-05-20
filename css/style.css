@@ -1761,6 +1761,62 @@ body.modal-open {
   color: var(--secondary);
 }
 
+/* ─── Logo Carousel ─── */
+.logo-carousel {
+  padding: 40px 0;
+  background: var(--primary-dark);
+  overflow: hidden;
+  position: relative;
+}
+
+.logo-carousel::before,
+.logo-carousel::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 80px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.logo-carousel::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--primary-dark) 0%, transparent 100%);
+}
+
+.logo-carousel::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--primary-dark) 0%, transparent 100%);
+}
+
+.logo-carousel-track {
+  display: flex;
+  gap: 48px;
+  align-items: center;
+  width: max-content;
+  animation: logoScroll 30s linear infinite;
+}
+
+.logo-carousel-track img {
+  height: 48px;
+  width: auto;
+  object-fit: contain;
+  flex-shrink: 0;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 8px 16px;
+}
+
+@keyframes logoScroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
 /* ─── Footer ─── */
 .footer {
   background: var(--primary);
@@ -1794,7 +1850,7 @@ body.modal-open {
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 2fr 1fr 1.5fr 1.5fr;
+  grid-template-columns: 2fr 1fr 1.5fr;
   gap: 48px;
   margin-bottom: 48px;
 }
@@ -2857,6 +2913,29 @@ body.modal-open {
   .ref-table th,
   .ref-table td {
     padding: 10px 8px;
+  }
+}
+
+@media (max-width: 768px) {
+  .logo-carousel {
+    padding: 24px 0;
+  }
+  .logo-carousel-track {
+    gap: 24px;
+  }
+  .logo-carousel-track img {
+    height: 36px;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo-carousel-track {
+    gap: 16px;
+  }
+  .logo-carousel-track img {
+    height: 30px;
+    padding: 4px 10px;
   }
 }
 
