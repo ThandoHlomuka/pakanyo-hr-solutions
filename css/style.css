@@ -1764,9 +1764,9 @@ body.modal-open {
 
 .footer-social {
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  margin-bottom: 36px;
+  justify-content: flex-start;
+  gap: 12px;
+  margin-top: 16px;
 }
 
 .footer-social a {
