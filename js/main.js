@@ -352,7 +352,7 @@
     if (!card) return;
     var slides = card.querySelectorAll('.testimonial-slide');
     var dotsContainer = card.querySelector('.testimonial-dots');
-    if (slides.length < 2) return;
+    if (!dotsContainer || slides.length < 2) return;
 
     slides.forEach(function(_, i) {
       var dot = document.createElement('span');

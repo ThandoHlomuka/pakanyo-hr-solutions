@@ -595,19 +595,7 @@ textarea::placeholder {
   line-height: 1.8;
 }
 
-.section-tag {
-  display: inline-block;
-  background: rgba(201, 149, 45, 0.12);
-  color: var(--secondary-light);
-  padding: 6px 18px;
-  border-radius: 50px;
-  font-size: 0.78rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  margin-bottom: 16px;
-}
-
+.section-tag,
 .section-badge {
   display: inline-block;
   background: rgba(201, 149, 45, 0.12);
@@ -1437,7 +1425,7 @@ textarea::placeholder {
 }
 
 .programme-card-body li::before {
-  content: '→';
+  content: '\2192';
   color: var(--secondary);
   font-weight: 700;
 }
@@ -1620,6 +1608,7 @@ textarea::placeholder {
   z-index: 10000;
   background: rgba(9, 28, 46, 0.8);
   backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
   align-items: center;
   justify-content: center;
   padding: 24px;
@@ -1763,10 +1752,11 @@ body.modal-open {
 
 /* ─── Logo Carousel ─── */
 .logo-carousel {
-  padding: 40px 0;
+  padding: 56px 0;
   background: var(--primary-dark);
   overflow: hidden;
   position: relative;
+  width: 100%;
 }
 
 .logo-carousel::before,
@@ -1775,7 +1765,7 @@ body.modal-open {
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 80px;
+  width: 60px;
   z-index: 2;
   pointer-events: none;
 }
@@ -1792,20 +1782,21 @@ body.modal-open {
 
 .logo-carousel-track {
   display: flex;
-  gap: 48px;
+  gap: 64px;
   align-items: center;
   width: max-content;
-  animation: logoScroll 30s linear infinite;
+  animation: logoScroll 35s linear infinite;
+  padding: 0 20px;
 }
 
 .logo-carousel-track img {
-  height: 48px;
+  height: 60px;
   width: auto;
   object-fit: contain;
   flex-shrink: 0;
-  border-radius: 6px;
+  border-radius: 8px;
   background: rgba(255, 255, 255, 0.95);
-  padding: 8px 16px;
+  padding: 10px 24px;
 }
 
 @keyframes logoScroll {
@@ -1855,61 +1846,7 @@ body.modal-open {
   margin-bottom: 48px;
 }
 
-.footer-accred {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
-  margin-top: 4px;
-}
 
-.footer-accred-item {
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  padding: 6px 14px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.06);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  font-size: 0.75rem;
-  font-weight: 600;
-  color: rgba(255, 255, 255, 0.8);
-  letter-spacing: 0.5px;
-  text-transform: uppercase;
-}
-
-.footer-accred-item .accred-dot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  background: var(--secondary);
-  flex-shrink: 0;
-}
-
-.footer-accred-logo {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 8px 12px;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.95);
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  transition: var(--transition);
-}
-
-.footer-accred-logo:hover {
-  background: #ffffff;
-  border-color: var(--secondary);
-  transform: translateY(-1px);
-}
-
-.footer-accred-logo img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  max-height: 48px;
-  width: auto;
-  object-fit: contain;
-}
 
 .footer-bottom-links {
   display: flex;
@@ -2449,6 +2386,7 @@ body.modal-open {
     font-size: 1rem;
     padding: 12px 0;
     display: block;
+    color: rgba(255, 255, 255, 0.85);
   }
 
   .nav-links a {
@@ -2918,24 +2856,27 @@ body.modal-open {
 
 @media (max-width: 768px) {
   .logo-carousel {
-    padding: 24px 0;
+    padding: 40px 0;
   }
   .logo-carousel-track {
-    gap: 24px;
+    gap: 40px;
   }
   .logo-carousel-track img {
-    height: 36px;
-    padding: 6px 12px;
+    height: 44px;
+    padding: 8px 16px;
   }
 }
 
 @media (max-width: 480px) {
+  .logo-carousel {
+    padding: 32px 0;
+  }
   .logo-carousel-track {
-    gap: 16px;
+    gap: 28px;
   }
   .logo-carousel-track img {
-    height: 30px;
-    padding: 4px 10px;
+    height: 36px;
+    padding: 6px 12px;
   }
 }
 
