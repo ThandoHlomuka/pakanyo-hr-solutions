@@ -1687,6 +1687,80 @@ body.modal-open {
   }
 }
 
+/* ─── POPIA Page ─── */
+.popia-content {
+  max-width: 860px;
+  margin: 0 auto;
+}
+
+.popia-section {
+  margin-bottom: 40px;
+  padding-bottom: 40px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.popia-section:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.popia-section h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: var(--secondary);
+  margin-bottom: 16px;
+  letter-spacing: -0.3px;
+}
+
+.popia-section p {
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.95rem;
+  line-height: 1.8;
+  margin-bottom: 12px;
+}
+
+.popia-section p:last-child {
+  margin-bottom: 0;
+}
+
+.popia-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 12px 0;
+}
+
+.popia-section ul li {
+  position: relative;
+  padding-left: 20px;
+  margin-bottom: 8px;
+  color: rgba(255, 255, 255, 0.75);
+  font-size: 0.95rem;
+  line-height: 1.7;
+}
+
+.popia-section ul li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 10px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--secondary);
+  flex-shrink: 0;
+}
+
+.popia-section a {
+  color: var(--secondary-light);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
+.popia-section a:hover {
+  color: var(--secondary);
+}
+
 /* ─── Footer ─── */
 .footer {
   background: var(--primary);
@@ -1753,6 +1827,38 @@ body.modal-open {
   border-radius: 50%;
   background: var(--secondary);
   flex-shrink: 0;
+}
+
+.footer-accred-logo {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6px;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: var(--transition);
+}
+
+.footer-accred-logo:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(201, 149, 45, 0.3);
+}
+
+.footer-accred-logo img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  max-height: 42px;
+  width: auto;
+  object-fit: contain;
+  filter: brightness(0) invert(1);
+  opacity: 0.85;
+  transition: var(--transition);
+}
+
+.footer-accred-logo:hover img {
+  opacity: 1;
 }
 
 .footer-bottom-links {
