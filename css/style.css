@@ -136,7 +136,7 @@ textarea::placeholder {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 80px;
+  height: 90px;
 }
 
 .logo {
@@ -150,7 +150,7 @@ textarea::placeholder {
 }
 
 .logo img {
-  height: 64px;
+  height: 76px;
   width: auto;
 }
 
