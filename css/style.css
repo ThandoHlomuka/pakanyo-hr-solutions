@@ -136,7 +136,7 @@ textarea::placeholder {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 72px;
+  height: 80px;
 }
 
 .logo {
@@ -150,7 +150,7 @@ textarea::placeholder {
 }
 
 .logo img {
-  height: 48px;
+  height: 64px;
   width: auto;
 }
 
@@ -2571,7 +2571,7 @@ body.modal-open {
 @media (max-width: 768px) {
   .nav-links {
     position: fixed;
-    top: 72px;
+    top: 64px;
     left: 0;
     right: 0;
     background: var(--primary);
@@ -2869,7 +2869,7 @@ body.modal-open {
   }
 
   .logo img {
-    height: 40px;
+    height: 50px;
   }
 
   .navbar .container {
@@ -2918,7 +2918,7 @@ body.modal-open {
   }
 
   .logo img {
-    height: 34px;
+    height: 42px;
   }
 
   .hamburger span {
