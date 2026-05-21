@@ -136,7 +136,7 @@ textarea::placeholder {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 110px;
+  height: 100px;
 }
 
 .logo {
@@ -2065,7 +2065,7 @@ body.modal-open {
 }
 
 .logo-carousel-track img {
-  height: 60px;
+  height: 72px;
   width: auto;
   object-fit: contain;
   flex-shrink: 0;
@@ -3132,7 +3132,7 @@ body.modal-open {
     gap: 40px;
   }
   .logo-carousel-track img {
-    height: 44px;
+    height: 52px;
     padding: 8px 16px;
   }
 }
@@ -3145,7 +3145,7 @@ body.modal-open {
     gap: 28px;
   }
   .logo-carousel-track img {
-    height: 36px;
+    height: 42px;
     padding: 6px 12px;
   }
 }
