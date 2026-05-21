@@ -1387,6 +1387,22 @@ textarea::placeholder {
   color: var(--secondary);
 }
 
+.article-highlight {
+  background: rgba(201, 149, 45, 0.06);
+  border-left: 3px solid var(--secondary);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  padding: 28px 32px;
+  margin: 32px 0;
+}
+
+.article-highlight p {
+  font-size: 1.15rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 0;
+  line-height: 1.7;
+}
+
 .article-cta-box {
   background: rgba(201, 149, 45, 0.06);
   border: 1px solid rgba(201, 149, 45, 0.15);
