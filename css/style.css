@@ -2057,16 +2057,10 @@ body.modal-open {
 
 .logo-carousel-track {
   display: flex;
-  gap: 0;
+  gap: 64px;
   align-items: center;
   width: max-content;
   animation: logoScroll 35s linear infinite;
-}
-
-.logo-set {
-  display: flex;
-  gap: 64px;
-  align-items: center;
 }
 
 .logo-carousel-track img {
@@ -3159,7 +3153,7 @@ body.modal-open {
   .logo-carousel {
     padding: 40px 0;
   }
-  .logo-set {
+  .logo-carousel-track {
     gap: 40px;
   }
   .logo-carousel-track img {
@@ -3172,7 +3166,7 @@ body.modal-open {
   .logo-carousel {
     padding: 32px 0;
   }
-  .logo-set {
+  .logo-carousel-track {
     gap: 28px;
   }
   .logo-carousel-track img {
