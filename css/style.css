@@ -3134,6 +3134,12 @@ body.modal-open {
   white-space: nowrap;
 }
 
+.ref-table .company-logo {
+  max-width: 100px;
+  max-height: 40px;
+  display: block;
+}
+
 .ref-table td.value-cell {
   font-weight: 600;
   color: var(--accent);
