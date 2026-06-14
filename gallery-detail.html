@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Gallery – Pakanyo HR Solutions</title>
+  <title id="pageTitle">Gallery – Pakanyo HR Solutions</title>
   <meta name="description" content="Browse through photos from Pakanyo HR Solutions events, training sessions, workshops, and organisational milestones.">
   <link rel="icon" href="images/favicon.png">
   <link rel="stylesheet" href="css/style.css?v=9">
@@ -47,11 +47,13 @@
 
   <section class="section">
     <div class="container">
-      <div class="gallery-categories-grid" id="galleryCategories"></div>
+      <div class="gallery-detail-header">
+        <a href="gallery.html" class="gallery-detail-back">&larr; Back to Gallery</a>
+        <h2 class="gallery-detail-title" id="categoryTitle"></h2>
+      </div>
+      <div class="gallery-detail-grid" id="galleryDetailGrid"></div>
     </div>
   </section>
-
-
 
   <section class="cta-section">
     <div class="container">
@@ -140,25 +142,27 @@
       }
     ];
 
-    const categoriesGrid = document.getElementById('galleryCategories');
+    const params = new URLSearchParams(window.location.search);
+    const folder = params.get('folder');
+    const cat = galleryData.find(c => c.folder === folder);
 
-    function renderCategories() {
-      categoriesGrid.innerHTML = galleryData.map(cat => {
-        const cover = `images/gallery/${cat.folder}/${cat.images[0]}`;
-        return `
-          <a href="gallery-detail.html?folder=${cat.folder}" class="gallery-category-card animate-on-scroll">
-            <div class="gallery-category-bg" style="background-image: url('${cover}');"></div>
-            <div class="gallery-category-overlay"></div>
-            <div class="gallery-category-content">
-              <div class="gallery-category-name">${cat.name}</div>
-              <div class="gallery-category-count">${cat.images.length} photo${cat.images.length > 1 ? 's' : ''}</div>
-            </div>
-          </a>
-        `;
-      }).join('');
+    const titleEl = document.getElementById('categoryTitle');
+    const gridEl = document.getElementById('galleryDetailGrid');
+    const pageTitleEl = document.getElementById('pageTitle');
+
+    if (cat) {
+      pageTitleEl.textContent = cat.name + ' – Pakanyo HR Solutions';
+      titleEl.textContent = cat.name;
+      gridEl.innerHTML = cat.images.map(img => `
+        <div class="gallery-image">
+          <img src="images/gallery/${cat.folder}/${img}" alt="${cat.name}" loading="lazy">
+        </div>
+      `).join('');
+    } else {
+      pageTitleEl.textContent = 'Gallery – Pakanyo HR Solutions';
+      titleEl.textContent = 'Category not found';
+      gridEl.innerHTML = '<p style="color:var(--gray);grid-column:1/-1;text-align:center;padding:60px 0;">Category not found. <a href="gallery.html" style="color:var(--secondary-light);">Back to gallery</a></p>';
     }
-
-    renderCategories();
   </script>
   <script src="js/main.js?v=9"></script>
 </body>
