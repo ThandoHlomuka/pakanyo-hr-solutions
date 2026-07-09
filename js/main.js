@@ -413,10 +413,58 @@
     }
   }
 
+  /* ─── Hero Carousel ─── */
+  function initHeroCarousel() {
+    var carousel = document.querySelector('.hero-carousel');
+    if (!carousel) return;
+    var slides = carousel.querySelectorAll('.hero-carousel-slide');
+    var dotsContainer = carousel.querySelector('.hero-carousel-dots');
+    if (slides.length < 2 || !dotsContainer) return;
+
+    slides.forEach(function(_, i) {
+      var dot = document.createElement('button');
+      dot.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+      if (i === 0) dot.classList.add('active');
+      dot.addEventListener('click', function() { goToSlide(i); });
+      dotsContainer.appendChild(dot);
+    });
+
+    var dots = dotsContainer.querySelectorAll('button');
+    var current = 0;
+    var interval;
+
+    function goToSlide(index) {
+      slides[current].classList.remove('active');
+      dots[current].classList.remove('active');
+      current = index;
+      slides[current].classList.add('active');
+      dots[current].classList.add('active');
+    }
+
+    function nextSlide() {
+      goToSlide((current + 1) % slides.length);
+    }
+
+    function startAuto() {
+      interval = setInterval(nextSlide, 5000);
+    }
+
+    function stopAuto() {
+      clearInterval(interval);
+    }
+
+    carousel.addEventListener('mouseenter', stopAuto);
+    carousel.addEventListener('mouseleave', startAuto);
+    carousel.addEventListener('touchstart', stopAuto, { passive: true });
+    carousel.addEventListener('touchend', startAuto, { passive: true });
+    startAuto();
+  }
+
   /* ─── Boot ─── */
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', function() {
       initSplash();
+      initHeroCarousel();
       initNavbar();
       initScrollAnimations();
       initActiveLink();
@@ -428,6 +476,7 @@
     });
   } else {
     initSplash();
+    initHeroCarousel();
     initNavbar();
     initScrollAnimations();
     initActiveLink();
