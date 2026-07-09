@@ -322,6 +322,20 @@ textarea::placeholder {
   z-index: 1;
 }
 
+.hero-carousel-bg {
+  position: absolute;
+  inset: 0;
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+  transform: scale(1);
+  transition: transform 7s ease-out;
+}
+
+.hero-carousel-slide.active .hero-carousel-bg {
+  transform: scale(1.08);
+}
+
 .hero-carousel-overlay {
   position: absolute;
   inset: 0;
@@ -2522,7 +2536,7 @@ body.modal-open {
 
   .hero-carousel {
     min-height: 0;
-    padding: 140px 0 80px;
+    padding: 0;
   }
 
   .hero-carousel-slides {
@@ -2534,6 +2548,9 @@ body.modal-open {
     opacity: 1;
     transition: none;
     display: none;
+    min-height: 100vh;
+    min-height: 100dvh;
+    padding: 140px 0 80px;
   }
 
   .hero-carousel-slide.active {
@@ -2655,6 +2672,10 @@ body.modal-open {
   }
 
   .hero-carousel {
+    padding: 0;
+  }
+
+  .hero-carousel-slide {
     padding: 130px 0 60px;
   }
 
@@ -2773,6 +2794,10 @@ body.modal-open {
   }
 
   .hero-carousel {
+    padding: 0;
+  }
+
+  .hero-carousel-slide {
     padding: 120px 0 50px;
   }
 
