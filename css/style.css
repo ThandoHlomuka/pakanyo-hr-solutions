@@ -655,6 +655,11 @@ textarea::placeholder {
   color: var(--secondary-light);
 }
 
+.card-icon svg {
+  width: 28px;
+  height: 28px;
+}
+
 .card h3 {
   font-size: 1.15rem;
   font-weight: 700;
@@ -1109,6 +1114,10 @@ textarea::placeholder {
 }
 
 /* ─── About Page Hero ─── */
+.page-hero-about p {
+  text-align: justify;
+}
+
 .page-hero-slideshow {
   background: none;
   min-height: 520px;
@@ -1206,6 +1215,11 @@ textarea::placeholder {
   justify-content: center;
   font-size: 1.4rem;
   margin-bottom: 20px;
+}
+
+.vm-card .icon svg {
+  width: 28px;
+  height: 28px;
 }
 
 .vm-card.vision .icon {
@@ -1885,6 +1899,11 @@ textarea::placeholder {
   justify-content: center;
   font-size: 1.1rem;
   color: var(--secondary);
+}
+
+.contact-info-item .icon svg {
+  width: 22px;
+  height: 22px;
 }
 
 .contact-info-item .label {
