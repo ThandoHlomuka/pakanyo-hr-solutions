@@ -310,6 +310,8 @@ textarea::placeholder {
 .hero-carousel-slide {
   position: absolute;
   inset: 0;
+  display: flex;
+  align-items: center;
   opacity: 0;
   transition: opacity 0.8s ease;
   z-index: 0;
@@ -332,6 +334,47 @@ textarea::placeholder {
 
 .hero-carousel-slide.active .hero-carousel-bg {
   transform: scale(1.08);
+}
+
+.hero-carousel-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(15,43,70,0.4) 0%, rgba(9,28,46,0.55) 100%);
+  z-index: 1;
+}
+
+.hero-carousel-slide .container {
+  position: relative;
+  z-index: 2;
+}
+
+.hero-carousel-content {
+  max-width: 720px;
+  animation: fadeInUp 0.8s ease;
+}
+
+.hero-carousel-content h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  line-height: 1.08;
+  color: var(--white);
+  margin-bottom: 20px;
+}
+
+.hero-carousel-content h1 span {
+  color: var(--secondary);
+  background: linear-gradient(135deg, var(--secondary), var(--secondary-light));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.hero-carousel-content p {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.8;
+  margin-bottom: 36px;
+  max-width: 600px;
 }
 
 .hero-carousel-dots {
@@ -2471,6 +2514,13 @@ body.modal-open {
 }
 
 /* ─── Responsive ─── */
+/* ─── Responsive ─── */
+@media (max-width: 1200px) {
+  .hero-carousel-content h1 {
+    font-size: 3rem;
+  }
+}
+
 /* 992px and below (tablets) */
 @media (max-width: 992px) {
   .hero-carousel {
@@ -2494,6 +2544,18 @@ body.modal-open {
 
   .hero-carousel-slide.active {
     display: flex;
+  }
+
+  .hero-carousel-content {
+    text-align: center;
+  }
+
+  .hero-carousel-content p {
+    margin: 0 auto 36px;
+  }
+
+  .hero-carousel-content h1 {
+    font-size: 2.5rem;
   }
 
   .vm-grid {
@@ -2614,6 +2676,14 @@ body.modal-open {
     padding: 130px 0 60px;
   }
 
+  .hero-carousel-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-carousel-content p {
+    font-size: 1rem;
+  }
+
   .section-header h2 {
     font-size: 1.8rem;
   }
@@ -2716,6 +2786,14 @@ body.modal-open {
 
 /* 576px and below (small phones) */
 @media (max-width: 576px) {
+  .hero-carousel-content h1 {
+    font-size: 1.7rem;
+  }
+
+  .hero-carousel-content p {
+    font-size: 0.95rem;
+  }
+
   .hero-carousel {
     padding: 0;
   }
@@ -2869,6 +2947,10 @@ body.modal-open {
 
 /* 400px and below (very small devices) */
 @media (max-width: 400px) {
+  .hero-carousel-content h1 {
+    font-size: 1.4rem;
+  }
+
   .page-hero h1 {
     font-size: 1.3rem;
   }
@@ -3110,6 +3192,16 @@ body.modal-open {
     min-height: 0;
     padding: 40px 0;
     background: var(--white) !important;
+  }
+
+  .hero-carousel-content h1,
+  .hero-carousel-content h1 span {
+    color: var(--primary) !important;
+    -webkit-text-fill-color: var(--primary) !important;
+  }
+
+  .hero-carousel-content p {
+    color: var(--dark) !important;
   }
 
   .hero-carousel-dots {
