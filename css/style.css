@@ -3126,6 +3126,34 @@ body.modal-open {
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
 }
 
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.logo-grid-item {
+  animation: float 3s ease-in-out infinite;
+}
+
+.logo-grid-item:nth-child(2) { animation-delay: 0.3s; }
+.logo-grid-item:nth-child(3) { animation-delay: 0.6s; }
+.logo-grid-item:nth-child(4) { animation-delay: 0.9s; }
+.logo-grid-item:nth-child(5) { animation-delay: 1.2s; }
+.logo-grid-item:nth-child(6) { animation-delay: 1.5s; }
+.logo-grid-item:nth-child(7) { animation-delay: 1.8s; }
+.logo-grid-item:nth-child(8) { animation-delay: 2.1s; }
+.logo-grid-item:nth-child(9) { animation-delay: 2.4s; }
+.logo-grid-item:nth-child(10) { animation-delay: 2.7s; }
+.logo-grid-item:nth-child(11) { animation-delay: 0.3s; }
+.logo-grid-item:nth-child(12) { animation-delay: 0.6s; }
+.logo-grid-item:nth-child(13) { animation-delay: 0.9s; }
+.logo-grid-item:nth-child(14) { animation-delay: 1.2s; }
+.logo-grid-item:nth-child(15) { animation-delay: 1.5s; }
+.logo-grid-item:nth-child(16) { animation-delay: 1.8s; }
+.logo-grid-item:nth-child(17) { animation-delay: 2.1s; }
+.logo-grid-item:nth-child(18) { animation-delay: 2.4s; }
+.logo-grid-item:nth-child(19) { animation-delay: 2.7s; }
+
 .logo-grid-item .company-logo {
   max-width: 120px;
   max-height: 60px;
