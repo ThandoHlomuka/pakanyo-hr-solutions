@@ -2640,10 +2640,6 @@ body.modal-open {
     color: rgba(255, 255, 255, 0.85);
   }
 
-  .nav-links a {
-    color: rgba(255, 255, 255, 0.85);
-  }
-
   .nav-cta {
     text-align: center;
     padding: 14px 24px !important;
@@ -3178,6 +3174,28 @@ body.modal-open {
   30% { transform: translateX(-6px); }
   50% { transform: translateX(6px); }
   70% { transform: translateX(-3px); }
+}
+
+/* ─── Section CTA ─── */
+.section-cta {
+  text-align: center;
+  margin-top: 48px;
+}
+
+/* ─── Button Dark ─── */
+.btn-dark {
+  background: var(--primary);
+  color: var(--white);
+  border: 2px solid var(--primary);
+  box-shadow: 0 4px 16px rgba(15, 43, 70, 0.2);
+}
+
+.btn-dark:hover {
+  background: var(--primary-light);
+  border-color: var(--primary-light);
+  transform: translateY(-3px);
+  box-shadow: 0 12px 40px rgba(15, 43, 70, 0.3);
+  color: var(--white);
 }
 
 /* Print styles */

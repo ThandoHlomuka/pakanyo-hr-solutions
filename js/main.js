@@ -107,7 +107,6 @@
     var form = document.getElementById('contactForm');
     if (!form) return;
     form.addEventListener('submit', function(e) {
-      e.preventDefault();
       var feedback = document.getElementById('formFeedback');
       if (!feedback) return;
       var btn = form.querySelector('button[type="submit"]');
@@ -119,7 +118,7 @@
       var formData = new FormData(form);
       var params = new URLSearchParams();
       formData.forEach(function(value, key) { params.append(key, value); });
-      fetch('https://formspree.io/f/xqapqkqz', {
+      fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         body: params,
         headers: { 'Accept': 'application/json' }
@@ -307,7 +306,6 @@
     var form = document.getElementById('consultForm');
     if (form) {
       form.addEventListener('submit', function(e) {
-        e.preventDefault();
         var feedback = document.getElementById('consultFeedback');
         if (!feedback) return;
         var btn = form.querySelector('button[type="submit"]');
@@ -319,7 +317,7 @@
         var formData = new FormData(form);
         var params = new URLSearchParams();
         formData.forEach(function(value, key) { params.append(key, value); });
-        fetch('https://formspree.io/f/xqapqkqz', {
+        fetch('https://api.web3forms.com/submit', {
           method: 'POST',
           body: params,
           headers: { 'Accept': 'application/json' }
