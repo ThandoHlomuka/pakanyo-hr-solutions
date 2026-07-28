@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://www.pakanyo.co.za/sitemap.xml
