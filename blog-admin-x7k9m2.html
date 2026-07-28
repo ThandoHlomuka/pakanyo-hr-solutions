@@ -1,0 +1,132 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog Admin - Pakanyo HR Solutions</title>
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" href="images/favicon.png">
+<link rel="stylesheet" href="css/style.css?v=14">
+<style>
+body{background:#0d1b2a;color:#e0e0e0;font-family:'Inter',sans-serif}
+.aw{max-width:1100px;margin:0 auto;padding:30px 20px}
+.ah{display:flex;align-items:center;justify-content:space-between;margin-bottom:30px;flex-wrap:wrap;gap:16px}
+.ah h1{font-family:var(--font-heading);color:#fff;font-size:1.6rem}
+.ah h1 span{color:var(--secondary)}
+.ab{background:var(--secondary);color:#000;font-size:.7rem;font-weight:700;padding:4px 10px;border-radius:20px;text-transform:uppercase;letter-spacing:.5px}
+.btn{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border:none;border-radius:8px;font-size:.9rem;font-weight:600;cursor:pointer;transition:.3s}
+.bp{background:var(--secondary);color:#000}
+.bp:hover{background:var(--secondary-light)}
+.bd{background:#dc3545;color:#fff}
+.bd:hover{background:#c82333}
+.bo{background:transparent;border:1.5px solid rgba(255,255,255,.2);color:#fff}
+.bo:hover{border-color:var(--secondary);color:var(--secondary)}
+.bs{padding:6px 14px;font-size:.8rem}
+.at{display:flex;gap:4px;margin-bottom:24px;background:rgba(255,255,255,.05);border-radius:10px;padding:4px}
+.ati{padding:10px 20px;border-radius:8px;cursor:pointer;font-weight:600;font-size:.85rem;color:rgba(255,255,255,.5);transition:.3s;border:none;background:none}
+.ati.a{background:var(--secondary);color:#000}
+.ati:hover:not(.a){color:#fff}
+.pn{display:none}.pn.a{display:block}
+.fg{margin-bottom:18px}
+.fg label{display:block;font-size:.8rem;font-weight:600;color:rgba(255,255,255,.6);margin-bottom:6px;text-transform:uppercase;letter-spacing:.5px}
+.fg input,.fg select,.fg textarea{width:100%;padding:12px 16px;background:rgba(255,255,255,.06);border:1.5px solid rgba(255,255,255,.1);border-radius:8px;color:#fff;font-size:.95rem;font-family:'Inter',sans-serif;transition:.3s}
+.fg input:focus,.fg select:focus,.fg textarea:focus{outline:none;border-color:var(--secondary);background:rgba(255,255,255,.08)}
+.fg textarea{min-height:300px;resize:vertical;line-height:1.7}
+.fr{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.fc{display:flex;align-items:center;gap:10px}
+.fc input[type=checkbox]{width:18px;height:18px;accent-color:var(--secondary)}
+.pl{display:flex;flex-direction:column;gap:12px}
+.pr{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;background:rgba(255,255,255,.04);border-radius:10px;border:1px solid rgba(255,255,255,.06);gap:12px;flex-wrap:wrap}
+.pr:hover{background:rgba(255,255,255,.07)}
+.pri{flex:1;min-width:200px}
+.prt{font-weight:600;color:#fff;font-size:.95rem}
+.prm{font-size:.78rem;color:rgba(255,255,255,.4);margin-top:4px}
+.pra{display:flex;gap:8px;flex-shrink:0}
+.sb{display:inline-block;padding:3px 10px;border-radius:20px;font-size:.7rem;font-weight:700;text-transform:uppercase}
+.sp{background:rgba(40,167,69,.15);color:#28a745}
+.sd{background:rgba(255,193,7,.15);color:#ffc107}
+.es{text-align:center;padding:60px 20px;color:rgba(255,255,255,.3)}
+.es h3{font-size:1.2rem;margin-bottom:8px;color:rgba(255,255,255,.5)}
+.toast{position:fixed;bottom:24px;right:24px;padding:14px 24px;border-radius:10px;font-weight:600;font-size:.85rem;z-index:9999;transform:translateY(100px);opacity:0;transition:all .3s}
+.toast.show{transform:translateY(0);opacity:1}
+.ts{background:#28a745;color:#fff}
+.te{background:#dc3545;color:#fff}
+.ld{text-align:center;padding:40px;color:rgba(255,255,255,.4)}
+.et{display:flex;gap:4px;margin-bottom:8px;flex-wrap:wrap}
+.et button{padding:6px 12px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:6px;color:rgba(255,255,255,.6);cursor:pointer;font-size:.8rem;font-weight:600;transition:.3s}
+.et button:hover{background:rgba(255,255,255,.1);color:#fff}
+@media(max-width:640px){.fr{grid-template-columns:1fr}.ah{flex-direction:column;align-items:flex-start}}
+</style>
+</head>
+<body>
+<div class="aw">
+<div class="ah">
+<h1><span>Pakanyo</span> Blog Admin <span class="ab">Private</span></h1>
+<button class="btn bo bs" onclick="window.location.href='blog.html'">View Blog</button>
+</div>
+<div class="at">
+<button class="ati a" data-tab="posts">All Posts</button>
+<button class="ati" data-tab="editor">New Post</button>
+</div>
+<div class="pn a" id="panel-posts">
+<div id="postsList" class="pl"><div class="ld">Loading posts</div></div>
+</div>
+<div class="pn" id="panel-editor">
+<form id="postForm">
+<input type="hidden" id="postId" value="">
+<div class="fg"><label for="postTitle">Title</label><input type="text" id="postTitle" placeholder="Enter post title..." required></div>
+<div class="fr">
+<div class="fg"><label for="postSlug">Slug</label><input type="text" id="postSlug" placeholder="auto-generated-from-title"></div>
+<div class="fg"><label for="postCategory">Category</label>
+<select id="postCategory"><option value="HR">HR</option><option value="Skills Development">Skills Development</option><option value="Leadership">Leadership</option><option value="Compliance">Compliance</option><option value="Recruitment">Recruitment</option><option value="General">General</option></select>
+</div>
+</div>
+<div class="fr">
+<div class="fg"><label for="postAuthor">Author</label><input type="text" id="postAuthor" value="Pakanyo HR Solutions"></div>
+<div class="fg"><label for="postCover">Cover Image URL</label><input type="url" id="postCover" placeholder="https://images.unsplash.com/..."></div>
+</div>
+<div class="fg"><label for="postExcerpt">Excerpt</label><input type="text" id="postExcerpt" placeholder="Short summary for previews and SEO..."></div>
+<div class="fg"><label>Content</label>
+<div class="et">
+<button type="button" onclick="insertTag('h2')">H2</button>
+<button type="button" onclick="insertTag('h3')">H3</button>
+<button type="button" onclick="insertTag('p')">Paragraph</button>
+<button type="button" onclick="insertTag('strong')">Bold</button>
+<button type="button" onclick="insertTag('em')">Italic</button>
+<button type="button" onclick="insertTag('ul')">Bullet List</button>
+<button type="button" onclick="insertTag('ol')">Numbered List</button>
+<button type="button" onclick="insertTag('blockquote')">Quote</button>
+<button type="button" onclick="insertTag('a')">Link</button>
+</div>
+<textarea id="postContent" placeholder="Write your blog post content here... (HTML supported)" required></textarea>
+</div>
+<div class="fg"><div class="fc"><input type="checkbox" id="postPublished"><label for="postPublished" style="margin-bottom:0;text-transform:none;letter-spacing:0">Publish immediately</label></div></div>
+<div style="display:flex;gap:12px;flex-wrap:wrap">
+<button type="submit" class="btn bp" id="saveBtn">Save Post</button>
+<button type="button" class="btn bo" onclick="resetEditor()">Cancel</button>
+</div>
+</form>
+</div>
+</div>
+<div class="toast" id="toast"></div>
+<script src="js/config.js"></script>
+<script src="js/supabase-client.js"></script>
+<script>
+(function(){
+if(!window.BlogAPI){document.getElementById('postsList').innerHTML='<div class="es"><h3>Supabase not configured</h3><p>Edit js/config.js with your credentials.</p></div>';return}
+var editingId=null;
+document.querySelectorAll('.ati').forEach(function(t){t.addEventListener('click',function(){document.querySelectorAll('.ati').forEach(function(x){x.classList.remove('a')});document.querySelectorAll('.pn').forEach(function(x){x.classList.remove('a')});t.classList.add('a');var tgt=t.getAttribute('data-tab');document.getElementById('panel-'+tgt).classList.add('a');if(tgt==='posts')loadPosts()})});
+function loadPosts(){var l=document.getElementById('postsList');l.innerHTML='<div class="ld">Loading posts</div>';BlogAPI.getPosts(false).then(function(posts){if(!posts||!posts.length){l.innerHTML='<div class="es"><h3>No posts yet</h3><p>Click New Post to create your first blog entry.</p></div>';return}var h='';posts.forEach(function(p){var d=new Date(p.created_at).toLocaleDateString('en-ZA',{year:'numeric',month:'short',day:'numeric'});var sc=p.published?'sp':'sd';var st=p.published?'Published':'Draft';h+='<div class="pr"><div class="pri"><div class="prt">'+esc(p.title)+'</div><div class="prm">'+esc(p.category)+' | '+d+' | <span class="sb '+sc+'">'+st+'</span></div></div><div class="pra"><button class="btn bp bs" onclick="editPost(\''+p.id+'\')">Edit</button><button class="btn bd bs" onclick="deletePost(\''+p.id+'\')">Delete</button></div></div>'});l.innerHTML=h})}
+window.editPost=function(id){BlogAPI.getPostById(id).then(function(p){if(!p)return;editingId=p.id;document.getElementById('postId').value=p.id;document.getElementById('postTitle').value=p.title;document.getElementById('postSlug').value=p.slug;document.getElementById('postCategory').value=p.category;document.getElementById('postAuthor').value=p.author;document.getElementById('postCover').value=p.cover_image||'';document.getElementById('postExcerpt').value=p.excerpt||'';document.getElementById('postContent').value=p.content;document.getElementById('postPublished').checked=p.published;document.getElementById('saveBtn').textContent='Update Post';document.querySelectorAll('.ati').forEach(function(t){t.classList.remove('a')});document.querySelectorAll('.pn').forEach(function(x){x.classList.remove('a')});document.querySelector('[data-tab=editor]').classList.add('a');document.getElementById('panel-editor').classList.add('a')})};
+window.deletePost=function(id){if(!confirm('Delete this post? This cannot be undone.'))return;BlogAPI.deletePost(id).then(function(){toast('Post deleted','s');loadPosts()})};
+document.getElementById('postTitle').addEventListener('input',function(){if(!editingId){document.getElementById('postSlug').value=BlogAPI.slugify(this.value)}});
+document.getElementById('postForm').addEventListener('submit',function(e){e.preventDefault();var post={title:document.getElementById('postTitle').value.trim(),slug:document.getElementById('postSlug').value.trim()||BlogAPI.slugify(document.getElementById('postTitle').value),category:document.getElementById('postCategory').value,author:document.getElementById('postAuthor').value.trim()||'Pakanyo HR Solutions',cover_image:document.getElementById('postCover').value.trim(),excerpt:document.getElementById('postExcerpt').value.trim(),content:document.getElementById('postContent').value,published:document.getElementById('postPublished').checked};if(editingId){BlogAPI.updatePost(editingId,post).then(function(){toast('Post updated!','s');resetEditor();loadPosts()}).catch(function(){toast('Update failed','e')})}else{BlogAPI.createPost(post).then(function(){toast('Post created!','s');resetEditor();loadPosts()}).catch(function(){toast('Create failed','e')})}});
+window.resetEditor=function(){editingId=null;document.getElementById('postForm').reset();document.getElementById('postId').value='';document.getElementById('saveBtn').textContent='Save Post';document.querySelectorAll('.ati').forEach(function(t){t.classList.remove('a')});document.querySelectorAll('.pn').forEach(function(x){x.classList.remove('a')});document.querySelector('[data-tab=posts]').classList.add('a');document.getElementById('panel-posts').classList.add('a');loadPosts()};
+window.insertTag=function(tag){var ta=document.getElementById('postContent');var s=ta.selectionStart,e=ta.selectionEnd,txt=ta.value.substring(s,e);if(tag==='a'){var url=prompt('Enter URL:');if(url)ta.value=ta.value.substring(0,s)+'<a href="'+url+'">'+(txt||'link text')+'</a>'+ta.value.substring(e)}else if(tag==='strong'||tag==='em'){ta.value=ta.value.substring(0,s)+'<'+tag+'>'+(txt||'text')+'</'+tag+'>'+ta.value.substring(e)}else if(tag==='ul'||tag==='ol'){ta.value=ta.value.substring(0,s)+'<'+tag+'>\n  <li>'+(txt||'item')+'</li>\n</'+tag+'>'+ta.value.substring(e)}else if(tag==='blockquote'){ta.value=ta.value.substring(0,s)+'<blockquote>'+(txt||'quote')+'</blockquote>'+ta.value.substring(e)}else{ta.value=ta.value.substring(0,s)+'<'+tag+'>'+(txt||'text')+'</'+tag+'>'+ta.value.substring(e)}ta.focus()};
+function esc(t){var d=document.createElement('div');d.textContent=t;return d.innerHTML}
+function toast(msg,type){var t=document.getElementById('toast');t.textContent=msg;t.className='toast toast-'+type+' show';setTimeout(function(){t.className='toast'},3000)}
+loadPosts();
+})();
+</script>
+</body>
+</html>

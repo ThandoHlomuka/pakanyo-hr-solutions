@@ -1,22 +1,44 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Articles – Pakanyo HR Solutions</title>
-  <meta name="description" content="Insights, guides, and thought leadership from Pakanyo HR Solutions on HR best practices, skills development, leadership, compliance, and workforce transformation in South Africa.">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Articles – Pakanyo HR Solutions">
-  <meta property="og:description" content="Insights, guides, and thought leadership from Pakanyo HR Solutions on HR best practices, skills development, leadership, and workforce transformation.">
-  <meta property="og:url" content="https://www.pakanyo.co.za/articles.html">
-  <meta property="og:image" content="https://www.pakanyo.co.za/images/pakanyo-logo.png">
+  <title id="pageTitle">Blog Post – Pakanyo HR Solutions</title>
+  <meta name="description" id="pageDesc" content="Read the latest insights from Pakanyo HR Solutions on HR, skills development, leadership, and workforce transformation.">
+  <meta property="og:type" content="article">
+  <meta property="og:title" id="ogTitle" content="Blog Post – Pakanyo HR Solutions">
+  <meta property="og:description" id="ogDesc" content="Read the latest insights from Pakanyo HR Solutions.">
+  <meta property="og:url" content="https://www.pakanyo.co.za/blog-post.html">
+  <meta property="og:image" id="ogImage" content="https://www.pakanyo.co.za/images/pakanyo-logo.png">
   <meta property="og:site_name" content="Pakanyo HR Solutions">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Articles – Pakanyo HR Solutions">
-  <meta name="twitter:description" content="Insights, guides, and thought leadership from Pakanyo HR Solutions on HR best practices, skills development, leadership, and workforce transformation.">
-  <meta name="twitter:image" content="https://www.pakanyo.co.za/images/pakanyo-logo.png">
   <link rel="icon" href="images/favicon.png">
   <link rel="stylesheet" href="css/style.css?v=14">
+  <style>
+    .post-loading { text-align: center; padding: 100px 20px; color: rgba(255,255,255,0.4); font-size: 1.1rem; }
+    .post-not-found { text-align: center; padding: 100px 20px; color: rgba(255,255,255,0.35); }
+    .post-not-found h2 { font-size: 1.5rem; margin-bottom: 10px; color: rgba(255,255,255,0.5); }
+    .post-header { text-align: center; margin-bottom: 40px; }
+    .post-header .blog-card-cat { margin-bottom: 12px; display: inline-block; }
+    .post-header h1 { font-family: var(--font-heading); font-size: 2.2rem; font-weight: 800; color: #fff; margin-bottom: 12px; line-height: 1.3; }
+    .post-meta { font-size: 0.9rem; color: rgba(255,255,255,0.4); }
+    .post-cover { width: 100%; max-height: 480px; object-fit: cover; border-radius: var(--radius-lg); margin-bottom: 40px; display: none; }
+    .post-body { max-width: 780px; margin: 0 auto; }
+    .post-body h2 { font-family: var(--font-heading); font-size: 1.6rem; font-weight: 700; color: #fff; margin: 36px 0 16px; }
+    .post-body h3 { font-family: var(--font-heading); font-size: 1.25rem; font-weight: 600; color: #fff; margin: 28px 0 12px; }
+    .post-body p { font-size: 1.05rem; line-height: 1.85; color: rgba(255,255,255,0.75); margin-bottom: 18px; }
+    .post-body ul, .post-body ol { margin: 16px 0 20px 24px; color: rgba(255,255,255,0.75); }
+    .post-body li { margin-bottom: 8px; line-height: 1.7; }
+    .post-body blockquote { border-left: 3px solid var(--secondary); padding: 16px 24px; margin: 24px 0; background: rgba(255,255,255,0.03); border-radius: 0 var(--radius) var(--radius) 0; font-style: italic; color: rgba(255,255,255,0.6); }
+    .post-body a { color: var(--secondary); text-decoration: underline; text-underline-offset: 2px; }
+    .post-body a:hover { color: var(--secondary-light); }
+    .post-body strong { color: #fff; font-weight: 600; }
+    .post-body img { max-width: 100%; border-radius: var(--radius); margin: 20px 0; }
+    .post-nav { display: flex; justify-content: space-between; align-items: center; margin-top: 60px; padding-top: 30px; border-top: 1px solid rgba(255,255,255,0.08); }
+    .post-nav a { color: var(--secondary); font-weight: 600; font-size: 0.9rem; text-decoration: none; transition: var(--transition); }
+    .post-nav a:hover { color: var(--secondary-light); }
+    @media (max-width: 640px) { .post-header h1 { font-size: 1.6rem; } }
+  </style>
 </head>
 <body>
 
@@ -32,8 +54,8 @@
         <li><a href="programmes.html">Programmes</a></li>
         <li><a href="gallery.html">Gallery</a></li>
         <li><a href="references.html">References</a></li>
-        <li><a href="articles.html" class="active">Articles</a></li>
-        <li><a href="blog.html">Blog</a></li>
+        <li><a href="articles.html">Articles</a></li>
+        <li><a href="blog.html" class="active">Blog</a></li>
         <li><a href="contact.html" class="nav-cta">Contact</a></li>
       </ul>
       <button class="hamburger" aria-label="Toggle navigation menu">
@@ -42,70 +64,10 @@
     </div>
   </nav>
 
-  <section class="page-hero page-hero-slideshow">
-    <div class="page-hero-bg" aria-hidden="true">
-      <div class="hero-bg-slide active" style="background-image: url('https://images.unsplash.com/photo-1504711434969-e33886168d6c?auto=format&fit=crop&w=1920&q=80');"></div>
-      <div class="hero-bg-slide" style="background-image: url('https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1920&q=80');"></div>
-      <div class="hero-bg-slide" style="background-image: url('https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1920&q=80');"></div>
-      <div class="hero-bg-slide" style="background-image: url('https://images.unsplash.com/photo-1499750310107-5fef28a66643?auto=format&fit=crop&w=1920&q=80');"></div>
-    </div>
-    <div class="page-hero-overlay"></div>
+  <section class="section" style="padding-top: 40px;">
     <div class="container">
-      <h1>Articles & Insights</h1>
-      <p>Practical HR guidance, skills development tips, leadership insights, and compliance updates for South African organisations.</p>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="section-header animate-on-scroll">
-        <span class="section-tag">Latest Articles</span>
-        <h2>Insights for HR &amp; Business Leaders</h2>
-        <p>Expert advice and practical guidance on workforce development, compliance, and organisational performance.</p>
-      </div>
-
-      <div class="articles-grid">
-
-        <article class="article-card animate-on-scroll">
-          <div class="article-meta">
-            <span class="article-category">Skills Development</span>
-            <span class="article-date">May 2026</span>
-          </div>
-          <h3><a href="article-qcto-transition.html">How Should Organisations Navigate the QCTO Transition?</a></h3>
-          <p>Practical guidance on navigating the QCTO transition — reviewing training programmes, aligning with occupational qualifications, integrating workplace learning, and preparing for EISA.</p>
-          <a href="article-qcto-transition.html" class="article-read-more">Read Article &rarr;</a>
-        </article>
-
-        <article class="article-card animate-on-scroll">
-          <div class="article-meta">
-            <span class="article-category">Learning &amp; Development</span>
-            <span class="article-date">June 2026</span>
-          </div>
-          <h3><a href="article-ld-strategic-driver.html">Why L&amp;D Must Be a Strategic Driver, Not Admin</a></h3>
-          <p>Most organisations don't have a training problem. They have a capability problem. Discover why L&amp;D must move from administration to strategic business driver.</p>
-          <a href="article-ld-strategic-driver.html" class="article-read-more">Read Article &rarr;</a>
-        </article>
-
-        <article class="article-card animate-on-scroll">
-          <div class="article-meta">
-            <span class="article-category">Learning &amp; Development</span>
-            <span class="article-date">June 2026</span>
-          </div>
-          <h3><a href="article-tna-process.html">How to Perfect Your Training Needs Analysis Process</a></h3>
-          <p>Master the Training Needs Analysis (TNA) process. A step-by-step guide to aligning training initiatives with organisational goals and individual needs.</p>
-          <a href="article-tna-process.html" class="article-read-more">Read Article &rarr;</a>
-        </article>
-
-        <article class="article-card animate-on-scroll">
-          <div class="article-meta">
-            <span class="article-category">Learning &amp; Development</span>
-            <span class="article-date">July 2026</span>
-          </div>
-          <h3><a href="article-pdp-leverage.html">How L&amp;D Practitioners Can Leverage Personal Development Plans (PDPs)</a></h3>
-          <p>Learn how to leverage Personal Development Plans (PDPs) to drive employee growth, engagement, and performance through personalised development strategies.</p>
-          <a href="article-pdp-leverage.html" class="article-read-more">Read Article &rarr;</a>
-        </article>
-
+      <div id="postContent" class="post-body">
+        <div class="post-loading">Loading post...</div>
       </div>
     </div>
   </section>
@@ -162,7 +124,7 @@
             <li><a href="gallery.html">Gallery</a></li>
             <li><a href="references.html">References</a></li>
             <li><a href="articles.html">Articles</a></li>
-        <li><a href="blog.html">Blog</a></li>
+            <li><a href="blog.html">Blog</a></li>
             <li><a href="contact.html">Contact</a></li>
           </ul>
         </div>
@@ -175,7 +137,6 @@
             <li><a href="https://www.pakanyo.co.za" target="_blank" rel="noopener noreferrer">www.pakanyo.co.za</a></li>
           </ul>
         </div>
-
       </div>
       <div class="footer-bottom">
         <div class="footer-bottom-links">
@@ -191,5 +152,30 @@
 
   <script src="js/main.js?v=14"></script>
   <script src="js/seo.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/supabase-client.js"></script>
+  <script>
+  (function(){
+    var container=document.getElementById('postContent');
+    var params=new URLSearchParams(window.location.search);
+    var slug=params.get('slug');
+    if(!slug){container.innerHTML='<div class="post-not-found"><h2>No post specified</h2><p><a href="blog.html" style="color:var(--secondary)">Back to blog</a></p></div>';return}
+    if(!window.BlogAPI){container.innerHTML='<div class="post-not-found"><h2>Blog coming soon</h2><p><a href="blog.html" style="color:var(--secondary)">Back to blog</a></p></div>';return}
+    BlogAPI.getPostBySlug(slug).then(function(post){
+      if(!post){container.innerHTML='<div class="post-not-found"><h2>Post not found</h2><p><a href="blog.html" style="color:var(--secondary)">Back to blog</a></p></div>';return}
+      document.title=post.title+' - Pakanyo HR Solutions';
+      var desc=post.excerpt||post.content.replace(/<[^>]+>/g,'').substring(0,160);
+      document.getElementById('pageDesc').content=desc;
+      document.getElementById('ogTitle').content=post.title+' - Pakanyo HR Solutions';
+      document.getElementById('ogDesc').content=desc;
+      if(post.cover_image){document.getElementById('ogImage').content=post.cover_image}
+      var d=new Date(post.created_at).toLocaleDateString('en-ZA',{year:'numeric',month:'long',day:'numeric'});
+      var imgHtml=post.cover_image?'<img src="'+post.cover_image+'" alt="'+post.title+'" class="post-cover" style="display:block" loading="lazy">':'';
+      var html='<div class="post-header animate-on-scroll"><span class="blog-card-cat">'+post.category+'</span><h1>'+post.title+'</h1><p class="post-meta">'+d+' &middot; '+post.author+'</p></div>'+imgHtml+'<div class="post-body animate-on-scroll">'+post.content+'</div><div class="post-nav"><a href="blog.html">&larr; All Posts</a></div>';
+      container.innerHTML=html;
+      if(typeof initScrollAnimations==='function')initScrollAnimations();
+    }).catch(function(){container.innerHTML='<div class="post-not-found"><h2>Something went wrong</h2><p><a href="blog.html" style="color:var(--secondary)">Back to blog</a></p></div>'});
+  })();
+  </script>
 </body>
 </html>

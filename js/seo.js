@@ -15,7 +15,9 @@
     'article-ld-strategic-driver.html':  { title: 'Why L&D Must Be a Strategic Driver', breadcrumb: ['Articles', 'Why L&D Must Be a Strategic Driver'] },
     'article-pdp-leverage.html':         { title: 'How L&D Practitioners Can Leverage PDPs', breadcrumb: ['Articles', 'How L&D Practitioners Can Leverage PDPs'] },
     'article-qcto-transition.html':      { title: 'Navigating the QCTO Transition', breadcrumb: ['Articles', 'Navigating the QCTO Transition'] },
-    'article-tna-process.html':          { title: 'How to Perfect Your TNA Process', breadcrumb: ['Articles', 'How to Perfect Your TNA Process'] }
+    'article-tna-process.html':          { title: 'How to Perfect Your TNA Process', breadcrumb: ['Articles', 'How to Perfect Your TNA Process'] },
+    'blog.html':      { title: 'Blog',      breadcrumb: ['Blog'] },
+    'blog-post.html': { title: 'Blog Post',  breadcrumb: ['Blog'] }
   };
 
   var path = window.location.pathname.split('/').pop() || 'index.html';
@@ -41,6 +43,7 @@
     else if (crumb === 'References') itemUrl = siteUrl + '/references.html';
     else if (crumb === 'Contact') itemUrl = siteUrl + '/contact.html';
     else if (crumb === 'Privacy Policy') itemUrl = siteUrl + '/popia.html';
+    else if (crumb === 'Blog') itemUrl = siteUrl + '/blog.html';
     else itemUrl = siteUrl + '/articles.html';
 
     breadcrumbItems.push({

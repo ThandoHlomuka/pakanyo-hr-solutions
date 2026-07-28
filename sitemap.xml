@@ -68,6 +68,13 @@
   </url>
 
   <url>
+    <loc>https://www.pakanyo.co.za/blog.html</loc>
+    <lastmod>2026-07-28</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+
+  <url>
     <loc>https://www.pakanyo.co.za/article-ld-strategic-driver.html</loc>
     <lastmod>2026-07-28</lastmod>
     <changefreq>monthly</changefreq>
