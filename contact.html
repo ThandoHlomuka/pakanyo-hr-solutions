@@ -80,8 +80,10 @@
       <div class="contact-grid">
         <div class="contact-form animate-on-scroll">
           <h3 style="font-size: 1.3rem; font-weight: 700; color: var(--primary); margin-bottom: 24px;">Send Us a Message</h3>
-          <form id="contactForm" action="https://api.web3forms.com/submit" method="POST">
-            <input type="hidden" name="access_key" value="02a274c5-bf40-495e-a40b-55b8b8b156f5">
+          <form id="contactForm" action="https://formsubmit.co/bella@pakanyo.co.za" method="POST">
+            <input type="hidden" name="_subject" value="Pakanyo HR - New Enquiry from Website">
+            <input type="hidden" name="_template" value="table">
+            <input type="hidden" name="_next" value="https://www.pakanyo.co.za/contact.html?sent=1">
             <div class="form-group">
               <label for="name">Full Name</label>
               <input type="text" id="name" name="name" placeholder="Your full name" required>
@@ -246,8 +248,9 @@
       <button class="modal-close" id="consultModalClose" aria-label="Close">&times;</button>
       <h3>Book a Consultation</h3>
       <p class="modal-sub">Fill in your details and we'll get back to you within 24 hours.</p>
-      <form id="consultForm" action="https://api.web3forms.com/submit" method="POST">
-        <input type="hidden" name="access_key" value="02a274c5-bf40-495e-a40b-55b8b8b156f5">
+      <form id="consultForm" action="https://formsubmit.co/bella@pakanyo.co.za" method="POST">
+        <input type="hidden" name="_subject" value="Pakanyo HR - Consultation Booking Request">
+        <input type="hidden" name="_template" value="table">
         <div class="form-group">
           <label for="consult-name">Full Name</label>
           <input type="text" id="consult-name" name="name" placeholder="Your full name" required>
